@@ -1,0 +1,90 @@
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: black;
+    padding: 20px 120px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.46);
+}
+
+.navbarLinks {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+.navbarLinks li {
+    padding: 0 10px;
+    position: relative;
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: white;
+    cursor: pointer;
+    width: max-content;
+    transition: ease-in-out .3s;
+}
+
+.navbarLinks li:hover,
+.navbarLinks li:active {
+    color: red;
+}
+
+.navbarLinks li::after {
+    content: "";
+    background: linear-gradient(to right, red, black);
+    border-radius: 100px;
+    height: 4px;
+    width: 0;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    transition: ease-in-out .4s;
+}
+
+.navbarLinks li:hover::after,
+.navbarLinks li:active::after {
+    width: 100%;
+}
+
+.mobile {
+    display: none;
+}
+
+.mobile {
+    color: white;
+}
+
+@media screen and (max-width:768px) {
+
+    .navbarLinks {
+        background: black;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+        position: fixed;
+        top: 60px;
+        right: -300px;
+        width: 250px;
+        height: 100vh;
+        box-shadow: 0 40px 60px rgba(0, 0, 0, 0.1);
+        padding: 40px 0 0 10px;
+        transition: ease-in-out .3s;
+    }
+
+    .navbarLinks.active {
+        right: 0;
+
+    }
+
+    .mobile {
+        display: block;
+        cursor: pointer;
+    }
+
+    .navbarLinks li {
+        margin-bottom: 25px;
+        padding-left: 50px;
+        width: 90%;
+    }
+}
