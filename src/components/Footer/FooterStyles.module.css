@@ -1,0 +1,95 @@
+.footer {
+    /* text-align: start; */
+    padding: 2rem 6rem;
+    background-color: black;
+    color: white;
+    border-radius: 20px 20px 0 0;
+}
+
+.top {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1em;
+    flex-wrap: wrap;
+}
+
+.top h1 {
+    text-align: center;
+}
+
+.icons {
+    display: flex;
+    gap: 1em;
+}
+
+.icons i {
+    font-size: 2em;
+    transition: 0.2s ease-in-out;
+}
+
+.icons i:hover {
+    color: red;
+}
+
+.bottom {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2em;
+    flex-wrap: wrap;
+}
+
+.bottom div {
+    width: 25%;
+    margin-bottom: 1em;
+    padding-left: 5em;
+}
+
+.bottom h4 {
+    margin-bottom: 0.2em;
+}
+
+.rights {
+    text-align: center;
+    margin-top: 2em;
+    margin-bottom: -2em;
+}
+
+.rights hr {
+    color: var(--bg-white);
+    margin-bottom: 0.3em;
+}
+
+.sbcrbBtn {
+    margin-top: .3em;
+    padding: 0.2rem 1rem;
+    white-space: nowrap;
+    border-radius: .3rem;
+    font-size: 1rem;
+    font-weight: 500;
+    border: none;
+    cursor: pointer;
+    transition: .2s ease-in-out;
+}
+
+.sbcrbBtn:hover {
+    background-color: var(--second-color);
+    color: var(--bg-white);
+}
+
+@media screen and (max-width: 850px) {
+    .footer {
+        padding: 2rem 4rem;
+    }
+
+    .bottom div {
+        width: 50%;
+    }
+}
+
+@media screen and (max-width: 425px) {
+    .bottom div {
+        padding-left: 2em;
+    }
+}

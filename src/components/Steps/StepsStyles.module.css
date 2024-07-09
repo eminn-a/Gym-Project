@@ -1,0 +1,53 @@
+.steps {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, auto));
+    gap: 2.5rem;
+    margin: 1.4em 2em;
+}
+
+.steps .box {
+    padding: 20px;
+    background-color: white;
+    box-shadow: var(--box-shadow);
+    text-align: center;
+    border-radius: 2rem 0 2rem 0;
+    box-shadow: rgba(136, 165, 191, 0.48) 6px 2px 16px 0px, rgba(255, 255, 255, 0.8) -6px -2px 16px 0px;
+    transition: all 0.2s ease-in-out;
+
+}
+
+.steps i {
+    font-size: 40px;
+}
+
+.steps .box:hover {
+    transform: scale(1.04);
+
+    i {
+        color: red;
+        transition: all 0.2s ease-in-out;
+    }
+
+    h3 {
+        color: red;
+        transition: all 0.2s ease-in-out;
+
+    }
+}
+
+.steps .box i {
+    padding: 10px;
+    border-radius: 50%;
+    background: var(--bg-color);
+    color: var(--main-color);
+}
+
+.steps .box h3 {
+    font-size: 1.1rem;
+    margin: 1rem 0 0.5rem;
+}
+
+.steps .box p {
+    font-size: 0.95rem;
+    margin: 1rem 0 0.5rem;
+}
