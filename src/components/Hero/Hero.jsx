@@ -12,7 +12,7 @@ export default function Navbar() {
         <p>Fosif Gym</p>
         <h1>MAKE YOUR BODY AND MIND</h1>
         <p>Fit & Perfect</p>
-        <div className={styles.heroBtn}>Check Classes</div>
+        {/* <div className={styles.heroBtn}>Check Classes</div> */}
       </div>
     </div>
   );
