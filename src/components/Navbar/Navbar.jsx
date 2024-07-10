@@ -7,7 +7,7 @@ export default function Navbar() {
     <>
       <nav>
         <a href="">
-          Gym-Philosophy <i className="fa-solid fa-dumbbell"></i>
+          Pasha Gym <i className="fa-solid fa-dumbbell"></i>
         </a>
         <div>
           <ul

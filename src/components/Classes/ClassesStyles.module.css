@@ -3,13 +3,14 @@
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    margin-top: 10em;
 }
 
 .container {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
-    margin: 100px 0;
+    margin: 80px 20px;
 }
 
 img {
@@ -46,7 +47,7 @@ img {
     box-sizing: border-box;
     position: absolute;
     color: white;
-    bottom: -70%;
+    bottom: -110%;
     padding: 0 2em;
     transition: .4s ease-in-out;
     font-weight: 700;
@@ -63,7 +64,7 @@ img {
 }
 
 
-@media screen and (max-width:768px) {
+@media screen and (max-width:868px) {
     .container {
         flex-direction: column;
     }
