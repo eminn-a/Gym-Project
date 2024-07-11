@@ -9,9 +9,9 @@ export default function Navbar() {
         alt="HeroImg"
       />
       <div className={styles.heroText}>
-        <h1>ДОБРЕ ДОШЛИ В СВЕТА НА </h1>
+        <h1>Спорт и когнитивна проницателност</h1>
         <p>YosifFIT</p>
-        <p>Усъвършенствай ума и тялото</p>
+        {/* <p>Спорт и когнитивна проницателност</p> */}
         {/* <div className={styles.heroBtn}>Check Classes</div> */}
       </div>
     </div>
