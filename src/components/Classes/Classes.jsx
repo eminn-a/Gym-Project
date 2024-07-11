@@ -3,7 +3,7 @@ import styles from "./ClassesStyles.module.css";
 export default function Classes() {
   return (
     <div className={styles.section}>
-      <h1>Our Classes</h1>
+      <h1>Нашите програми</h1>
       <div className={styles.container}>
         <div className={styles.card}>
           <img
@@ -11,14 +11,18 @@ export default function Classes() {
             alt="classesImg"
           />
           <div className={styles.title}>
-            <h1>CrossFit</h1>
+            <h1>HIIT</h1>
           </div>
           <div className={styles.intro}>
-            <p>Focus: High-intensity functional movements</p>
+            <p>Фокус: Изгаряне на мазнини и издръжливост</p>
             <p>
-              Benefits: Overall fitness, strength, endurance, and flexibility
+              Ползи: Бързо изгаряне на калории и подобрение на
+              кардиоваскуларната система
             </p>
-            <p>Structure: Workouts of the Day (WODs), varied routines</p>
+            <p>
+              Структура: Интензивни интервали на упражнения, последвани от
+              кратки почивки
+            </p>
           </div>
         </div>
         <div className={styles.card}>
@@ -27,14 +31,14 @@ export default function Classes() {
             alt="classesImg"
           />
           <div className={styles.title}>
-            <h1>Strength Training</h1>
+            <h1>Силови тренировки</h1>
           </div>
           <div className={styles.intro}>
-            <p>Focus: Building muscle strength</p>
-            <p>Benefits: Increased muscle mass, bone density, and metabolism</p>
+            <p>Фокус: Изграждане на мускулна сила</p>
             <p>
-              Structure: Use of free weights, machines, and resistance bands
+              Ползи: Увеличена мускулна маса, плътност на костите и метаболизъм
             </p>
+            <p>Структура: Използване на свободни тежести, машини и ластици</p>
           </div>
         </div>
         <div className={styles.card}>
@@ -43,17 +47,14 @@ export default function Classes() {
             alt="classesImg"
           />
           <div className={styles.title}>
-            <h1>Functional Training</h1>
+            <h1>Функционални тренировки</h1>
           </div>
           <div className={styles.intro}>
-            <p>Focus: Flexibility, balance, and mindfulness</p>
+            <p>Фокус: Подобряване на общата физическа форма</p>
+            <p>Ползи: Повишена гъвкавост, баланс, координация и сила</p>
             <p>
-              Benefits: Improved balance, coordination, and overall
-              functionality
-            </p>
-            <p>
-              Structure: Exercises using body weight, free weights, and
-              equipment like kettlebells
+              Структура: Използване на упражнения с телесно тегло, тренировка с
+              гирички, балансова топка и д.р
             </p>
           </div>
         </div>

@@ -7,8 +7,9 @@ const Footer = () => {
         <div>
           <h1>Pasha Gym</h1>
           <p>
-            Take your health and body to the next level with our comprehensive
-            program designed to help you reach your fitness goals.
+            Подобрете здравето и формата си с нашата комплексна програма,
+            създадена специално, за да ви помогне да достигнете и надминете
+            вашите фитнес цели.
           </p>
         </div>
         <div className={styles.icons}>

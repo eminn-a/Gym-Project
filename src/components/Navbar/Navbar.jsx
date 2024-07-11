@@ -17,10 +17,10 @@ export default function Navbar() {
                 : `${styles.navbarLinks} ${styles.active}`
             }
           >
-            <li>Home</li>
-            <li>About</li>
-            <li>Classes</li>
-            <li>Contact</li>
+            <li>Начало</li>
+            <li>За Нас</li>
+            <li>Програми</li>
+            <li>Контакти</li>
           </ul>
         </div>
         <div className={styles.mobile}>

@@ -8,14 +8,15 @@ export default function SingleCard() {
         <img src={Yosif} alt="" />
       </div>
       <div className={styles.sTripText}>
-        <h4>Yosif, the Grand Vizir</h4>
+        <h4>Йосиф Хаджиев</h4>
         <div className={styles.infoContainer}></div>
         <p>
-          {" "}
-          A senior official in the Ottoman Empire, often serving as an advisor
-          or minister to the Sultan. The most senior Vizier was the Grand
-          Vizier, who acted as the head of government and had broad executive
-          powers, second only to the Sultan.
+          Този треньор е специализиран в разнообразни фитнес дисциплини,
+          включително функционални тренировки, HIIT (високоинтензивна интервална
+          тренировка) и силови тренировки, както и създаване на персонализирани
+          хранителни планове. С опит в разработването на комплексни тренировки и
+          диетични стратегии, той съчетава техники от различни области, за да
+          осигури цялостен подход към фитнес и здраве.
         </p>
       </div>
     </div>
