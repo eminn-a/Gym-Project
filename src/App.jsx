@@ -5,6 +5,7 @@ import Steps from "./components/Steps/Steps";
 import Footer from "./components/Footer/Footer";
 import Classes from "./components/Classes/Classes";
 import About from "./components/About/About";
+import Testemonials from "./components/Testemonials/Testemonial";
 function App() {
   return (
     <div className="App">
@@ -13,6 +14,7 @@ function App() {
       <Steps />
       <Classes />
       <About />
+      <Testemonials />
       <Footer />
     </div>
   );
