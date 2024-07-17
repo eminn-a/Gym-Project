@@ -6,7 +6,7 @@ export default function PicturesGrid() {
     <section>
       <div className={styles.infoBox}>
         <h1>
-          <span className={styles.gradientText}>Our Clients</span>
+          <span className={styles.gradientText}>Нашите клиенти</span>
         </h1>
         <h3>
           <span className={styles.gradientText}>Our clients</span>
@@ -42,6 +42,7 @@ export default function PicturesGrid() {
             />
           </div>
         </div>
+
         <div className={styles.column}>
           <div className={styles.photo}>
             <img
@@ -65,19 +66,19 @@ export default function PicturesGrid() {
         <div className={styles.column}>
           <div className={styles.photo}>
             <img
-              src="https://images.pexels.com/photos/136405/pexels-photo-136405.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+              src="https://images.pexels.com/photos/3112004/pexels-photo-3112004.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
               alt=""
             />
           </div>{" "}
           <div className={styles.photo}>
             <img
-              src="https://images.pexels.com/photos/2105493/pexels-photo-2105493.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+              src="https://images.pexels.com/photos/2628215/pexels-photo-2628215.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
               alt=""
             />
           </div>{" "}
           <div className={styles.photo}>
             <img
-              src="https://images.pexels.com/photos/2247179/pexels-photo-2247179.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+              src="https://images.pexels.com/photos/371049/pexels-photo-371049.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
               alt=""
             />
           </div>

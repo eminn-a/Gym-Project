@@ -1,143 +1,139 @@
 .trip {
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .infoContainer {
-    display: flex;
-    flex-direction: row;
-    gap: 1em;
-    margin-bottom: 1em;
-    font-style: italic;
-    font-weight: 600;
+  display: flex;
+  flex-direction: row;
+  gap: 1em;
+  margin-bottom: 1em;
+  font-style: italic;
+  font-weight: 600;
 }
 
 .infoContainer i {
-    padding-right: .3em;
+  padding-right: 0.3em;
 }
 
 .trip h1 {
-    font-size: 3rem;
+  font-size: 3rem;
 }
 
 .trip p {
-    font-size: 1.1rem;
-    margin-bottom: 0.5em;
-    width: 100%;
+  font-size: 1.1rem;
+  margin-bottom: 0.5em;
+  width: 100%;
 }
 
 .tripCardContainer {
-    margin-top: 3rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 3rem;
-    flex-wrap: wrap;
+  margin-top: 3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 3rem;
+  flex-wrap: wrap;
 }
 
 .tCard {
-    width: 100%;
-    height: 40vh;
-    text-align: start;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 2em;
-    box-shadow: 0 5px 25px 2px rgba(0, 0, 0, 0.5);
-    border-radius: 7px;
-    padding: 1rem;
-    background: black;
-    cursor: pointer;
-    margin-bottom: 6em;
-
+  width: 100%;
+  height: 40vh;
+  text-align: start;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2em;
+  box-shadow: 0 5px 25px 2px rgba(0, 0, 0, 0.5);
+  border-radius: 7px;
+  padding: 1rem;
+  background: black;
+  cursor: pointer;
+  margin-bottom: 6em;
 }
 
 .tImage {
-    height: 550px;
-    width: auto;
-    overflow: hidden;
-    border-radius: 10%;
+  height: 150%;
+  width: auto;
+  overflow: hidden;
+  border-radius: 10%;
 }
 
 .tImage img {
-    width: 100%;
-    height: 100%;
-    display: block;
-    transition: 0.3s ease-in-out;
-    border-radius: 7px;
+  width: 100%;
+  height: 100%;
+  display: block;
+  transition: 0.3s ease-in-out;
+  border-radius: 7px;
 }
 
 .tImage img:hover {
-    transform: scale(1.12);
+  transform: scale(1.12);
 }
 
 .tCard h4 {
-    font-size: 2.8rem;
-    padding: 0.9rem 0 0.2rem 0;
+  font-size: 2.8rem;
+  padding: 0.9rem 0 0.2rem 0;
 }
 
 .sTripText {
-    padding: 0rem 1rem;
-    width: 40%;
-    /* text-align: center; */
-    color: white;
-    transition: ease-in-out .2s;
-
+  padding: 0rem 1rem;
+  width: 40%;
+  /* text-align: center; */
+  color: white;
+  transition: ease-in-out 0.2s;
 }
 
 .sTripText p {
-    font-size: 1rem;
+  font-size: 1rem;
 }
 
 .btn {
-    padding: 0.4rem 2.5rem;
-    white-space: nowrap;
-    border-radius: 2rem;
-    font-size: 1rem;
-    font-weight: 600;
-    border: none;
-    cursor: pointer;
-    transition: 0.2s ease-in-out;
-    background-color: #e2001a;
-    color: white;
-    border: 3.5px solid #f6b2ba;
+  padding: 0.4rem 2.5rem;
+  white-space: nowrap;
+  border-radius: 2rem;
+  font-size: 1rem;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  transition: 0.2s ease-in-out;
+  background-color: #e2001a;
+  color: white;
+  border: 3.5px solid #f6b2ba;
 }
 
 .btn:hover {
-    background-color: #ca031a;
-
+  background-color: #ca031a;
 }
 
 .tCard:hover {
-    .sTripText {
-        color: red;
-    }
+  .sTripText {
+    color: red;
+  }
 }
 
-@media screen and (max-width:850px) {
-    .trip {
-        margin: 1rem 0;
-    }
+@media screen and (max-width: 850px) {
+  .trip {
+    margin: 1rem 0;
+  }
 
-    .tCard {
-        flex-direction: column;
-        height: auto;
-    }
+  .tCard {
+    flex-direction: column;
+    height: auto;
+  }
 
-    .sTripText {
-        width: 80%;
-        text-align: center;
-    }
-
+  .sTripText {
+    width: 80%;
+    text-align: center;
+  }
 }
 
-@media screen and (max-width:550px) {
-    .infoContainer {
-        margin-top: .5em;
-        display: flex;
-        flex-direction: column;
-    }
+@media screen and (max-width: 550px) {
+  .infoContainer {
+    margin-top: 0.5em;
+    display: flex;
+    flex-direction: column;
+  }
 }
