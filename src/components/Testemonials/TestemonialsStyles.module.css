@@ -3,7 +3,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 6em 0;
+  margin: 1em 0;
 }
 
 .infoContainer {
@@ -50,19 +50,15 @@
   border-radius: 7px;
   padding: 1rem;
   margin-bottom: 6em;
-  position: relative;
   background-color: black;
   cursor: default;
 }
 
 .tImage {
-  height: 170%;
+  height: 120%;
   width: auto;
   overflow: hidden;
   border-radius: 0 200px 0 0;
-  position: absolute;
-  left: -80px;
-  bottom: 0;
 }
 
 .tImage img {
