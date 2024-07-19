@@ -10,7 +10,9 @@ export default function Navbar() {
       />
       <div className={styles.heroText}>
         <h1>Спорт и когнитивна проницателност</h1>
-        <p>YosifFIT</p>
+        <h1>
+          <span className={styles.gradientText}>YosifFIT</span>
+        </h1>
         {/* <p>Спорт и когнитивна проницателност</p> */}
         {/* <div className={styles.heroBtn}>Check Classes</div> */}
       </div>

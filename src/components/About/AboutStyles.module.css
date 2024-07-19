@@ -3,6 +3,8 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-bottom: 19em;
+  margin-top: 3em;
 }
 
 .infoContainer {
@@ -29,7 +31,7 @@
 }
 
 .tripCardContainer {
-  margin-top: 3rem;
+  margin-top: 9rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -117,6 +119,10 @@
 @media screen and (max-width: 850px) {
   .trip {
     margin: 1rem 0;
+  }
+
+  .tripCardContainer {
+    margin-top: 2em;
   }
 
   .tCard {

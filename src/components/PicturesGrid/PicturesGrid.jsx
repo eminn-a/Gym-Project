@@ -8,17 +8,17 @@ export default function PicturesGrid() {
         <h1>
           <span className={styles.gradientText}>Нашите клиенти</span>
         </h1>
-        <h3>
+        {/* <h3>
           <span className={styles.gradientText}>Our clients</span>
-        </h3>
+        </h3> */}
         <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet suscipit
-          quisquam nobis praesentium earum maxime, dolorum dolor fugit beatae
-          quia?
+          Присъединете се към нашето семейство от доволни клиенти и започнете
+          своето пътешествие към по-здравословен и активен начин на живот още
+          днес!
         </p>
         <div className={styles.btnBox}>
-          <button className={styles.btn}>Click</button>
-          <button className={styles.btn}>Send Mail</button>
+          <button className={styles.btn}>Обади се</button>
+          <button className={styles.btn}>Изпрати Имейл</button>
         </div>
       </div>
       <div className={styles.photoGalery}>
@@ -42,7 +42,6 @@ export default function PicturesGrid() {
             />
           </div>
         </div>
-
         <div className={styles.column}>
           <div className={styles.photo}>
             <img

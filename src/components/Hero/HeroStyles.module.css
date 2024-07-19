@@ -36,7 +36,6 @@
     font-size: 3.4rem;
     color: red;
     font-style: italic;
-    text-shadow: 0 5px 100px red;
 
 }
 
@@ -58,9 +57,25 @@
     box-shadow: 0 5px 20px white;
 }
 
+.gradientText {
+    background: linear-gradient(270deg, #7e2d2d, #ff0404 100%);
+    background-clip: text;
+    color: transparent;
+    text-shadow: 0 5px 100px red;
+    font-size: 60px;
+    font-style: italic;
+}
+
 @media screen and (max-width:868px) {
     .heroText h1 {
         font-size: 2.8rem;
+    }
+
+}
+
+@media screen and (max-width:868px) {
+    .heroText h1 {
+        font-size: 2.2rem;
     }
 
 }
