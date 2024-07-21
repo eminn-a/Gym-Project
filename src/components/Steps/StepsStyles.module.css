@@ -1,6 +1,6 @@
 .steps {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, auto));
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
     gap: 2.5rem;
     margin: 5em 7em;
 }
