@@ -7,6 +7,7 @@ import Classes from "./components/Classes/Classes";
 import About from "./components/About/About";
 import Testemonials from "./components/Testemonials/Testemonial";
 import PicturesGrid from "./components/PicturesGrid/PicturesGrid";
+import PricingTag from "./components/PricingTag/PricingTag";
 function App() {
   return (
     <div className="App">
@@ -16,6 +17,7 @@ function App() {
       <PicturesGrid />
       <Classes />
       <About />
+      <PricingTag />
       <Testemonials />
       <Footer />
     </div>
