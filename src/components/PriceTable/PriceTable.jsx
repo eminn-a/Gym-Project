@@ -96,7 +96,7 @@ export default function PriceTable() {
       <div className={`${styles.table} ${styles.premium}`}>
         <div className={styles.ribbon}>
           {" "}
-          <span>НОВО!</span>
+          <span>ПРОМО ЦЕНА!</span>
         </div>
         <div className={styles.priceSection}>
           <div className={styles.priceArea}>
