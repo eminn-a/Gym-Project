@@ -1,0 +1,92 @@
+.wrapper {
+    width: 90%;
+    display: flex;
+    margin: auto;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+.table {
+    width: 30%;
+    padding: 30px;
+    background: white;
+    border-radius: 1em 0 1em 0;
+    transition: .3s ease-in-out;
+    cursor: pointer;
+    box-shadow: rgba(136, 165, 191, 0.48) 6px 2px 16px 0px, rgba(255, 255, 255, 0.8) -6px -2px 16px 0px;
+}
+
+.table:hover {
+    transform: scale(1.04);
+}
+
+.priceSection {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.priceArea {
+    height: 120px;
+    width: 120px;
+    background: #ff0404;
+    border-radius: 50%;
+    padding: 2px;
+}
+
+.innerArea {
+    height: 100%;
+    width: 100%;
+    background: #ff0404;
+    border-radius: 50%;
+    border: 3px solid white;
+    color: white;
+    line-height: 117px;
+    text-align: center;
+    position: relative;
+}
+
+.text {
+    font-size: 20px;
+    font-weight: 500;
+    position: absolute;
+    right: 10px;
+    top: -10px;
+}
+
+.price {
+    font-size: 45px;
+    font-weight: 500;
+    margin-right: 25px;
+}
+
+.packageName {
+    width: 100%;
+    height: 2px;
+    background: red;
+    margin: 20px 0;
+    position: relative;
+    font-size: 25px;
+    font-weight: 700;
+    text-align: center;
+}
+
+.features {
+    margin-top: 3em;
+}
+
+.features li {
+    margin-bottom: 15px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.listName {
+    font-size: 17px;
+    font-weight: 400;
+}
+
+.icon {
+    font-size: 15px;
+    color: green;
+}

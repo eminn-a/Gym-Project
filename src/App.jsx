@@ -8,6 +8,7 @@ import About from "./components/About/About";
 import Testemonials from "./components/Testemonials/Testemonial";
 import PicturesGrid from "./components/PicturesGrid/PicturesGrid";
 import PricingTag from "./components/PricingTag/PricingTag";
+import PriceTable from "./components/PriceTable/PriceTable";
 function App() {
   return (
     <div className="App">
@@ -18,6 +19,7 @@ function App() {
       <Classes />
       <About />
       <PricingTag />
+      <PriceTable />
       <Testemonials />
       <Footer />
     </div>
