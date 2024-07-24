@@ -18,7 +18,7 @@ function App() {
       <PicturesGrid />
       <Classes />
       <About />
-      <PricingTag />
+      {/* <PricingTag /> */}
       <PriceTable />
       <Testemonials />
       <Footer />

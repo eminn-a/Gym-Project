@@ -3,7 +3,8 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 1em 0;
+  margin-top: 8em;
+  margin-bottom: 5em;
 }
 
 .infoContainer {
@@ -40,22 +41,20 @@
 }
 
 .tCard {
-  width: 80%;
-  margin-left: 4em;
-  height: 40vh;
+  width: 90%;
+  height: 500px;
   text-align: start;
   display: flex;
   justify-content: center;
   align-items: center;
   border-radius: 7px;
-  padding: 1rem;
   margin-bottom: 6em;
   background-color: black;
   cursor: default;
 }
 
 .tImage {
-  height: 120%;
+  height: 110%;
   width: auto;
   overflow: hidden;
   border-radius: 0 200px 0 0;
@@ -63,7 +62,7 @@
 
 .tImage img {
   width: 100%;
-  height: 100%;
+  height: 600px;
   display: block;
   transition: 0.3s ease-in-out;
   border-radius: 7px;
