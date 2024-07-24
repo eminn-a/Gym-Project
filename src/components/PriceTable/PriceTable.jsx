@@ -101,7 +101,7 @@ export default function PriceTable() {
         <div className={styles.priceSection}>
           <div className={styles.priceArea}>
             <div className={styles.innerArea}>
-              <span className={styles.price}>90</span>
+              <span className={styles.price}>60</span>
               <span className={styles.text}>ЛВ</span>
             </div>
           </div>
