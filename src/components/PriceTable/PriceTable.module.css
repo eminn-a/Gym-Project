@@ -12,13 +12,13 @@
     background: white;
     border-radius: 1em 0 1em 0;
     transition: .3s ease-in-out;
+    position: relative;
     cursor: pointer;
     box-shadow: rgba(136, 165, 191, 0.48) 6px 2px 16px 0px, rgba(255, 255, 255, 0.8) -6px -2px 16px 0px;
 }
 
 .table:hover {
     transform: scale(1.04);
-
 }
 
 .priceSection {
@@ -90,4 +90,47 @@
 .icon {
     font-size: 15px;
     color: green;
+}
+
+.ribbon {
+    height: 150px;
+    width: 150px;
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    overflow: hidden;
+}
+
+.ribbon::before,
+.ribbon::after {
+    position: absolute;
+    content: "";
+    display: block;
+    border: 5px solid black;
+    border-top-color: transparent;
+    border-left-color: transparent;
+}
+
+.ribbon::before {
+    top: 0px;
+    right: 28px;
+
+}
+
+.ribbon::after {
+    bottom: 28px;
+    left: 0px;
+
+}
+
+.ribbon span {
+    position: absolute;
+    background: red;
+    width: 200px;
+    padding: 5px 0;
+    color: white;
+    text-align: center;
+    top: 30px;
+    right: 0px;
+    transform: rotate(-45deg);
 }
