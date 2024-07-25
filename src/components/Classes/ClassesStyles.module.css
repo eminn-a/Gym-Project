@@ -63,6 +63,13 @@ img {
     }
 }
 
+.gradientText {
+    background: linear-gradient(270deg, #4d1313, #ff0404 100%);
+    background-clip: text;
+    color: transparent;
+    font-size: 2.5em;
+}
+
 
 @media screen and (max-width:868px) {
     .container {
@@ -76,5 +83,9 @@ img {
 
     .intro {
         bottom: 10%;
+    }
+
+    .gradientText {
+        font-size: 2.7rem;
     }
 }

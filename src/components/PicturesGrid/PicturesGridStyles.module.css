@@ -101,6 +101,8 @@ section {
   .gradientText {
     font-size: 30px;
     text-wrap: nowrap;
+    font-size: 2.7rem;
+
   }
 }
 

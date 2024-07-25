@@ -5,7 +5,9 @@ export default function Testemonials() {
   return (
     <div className={styles.trip}>
       <div>
-        <h1>Отзиви</h1>
+        <h1>
+          <span className={styles.gradientText}>Отзиви</span>
+        </h1>
         <p>Екип от експертни треньори</p>
       </div>
       <div className={styles.tripCardContainer}>

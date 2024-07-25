@@ -3,7 +3,10 @@ import styles from "./ClassesStyles.module.css";
 export default function Classes() {
   return (
     <div className={styles.section}>
-      <h1>Нашите програми</h1>
+      <h1>
+        {" "}
+        <span className={styles.gradientText}>Нашите програми</span>
+      </h1>
       <div className={styles.container}>
         <div className={styles.card}>
           <img
