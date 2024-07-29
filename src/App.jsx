@@ -7,22 +7,23 @@ import Classes from "./components/Classes/Classes";
 import About from "./components/About/About";
 import Testemonials from "./components/Testemonials/Testemonial";
 import PicturesGrid from "./components/PicturesGrid/PicturesGrid";
-import PricingTag from "./components/PricingTag/PricingTag";
 import PriceTable from "./components/PriceTable/PriceTable";
+import { BrowserRouter } from "react-router-dom";
 function App() {
   return (
-    <div className="App">
-      <Navbar />
-      <Hero />
-      <Steps />
-      <PicturesGrid />
-      <Classes />
-      <About />
-      {/* <PricingTag /> */}
-      <PriceTable />
-      <Testemonials />
-      <Footer />
-    </div>
+    <BrowserRouter>
+      <div className="App">
+        <Navbar />
+        <Hero />
+        <Steps />
+        <PicturesGrid />
+        <Classes />
+        <About />
+        <PriceTable />
+        <Testemonials />
+        <Footer />
+      </div>
+    </BrowserRouter>
   );
 }
 

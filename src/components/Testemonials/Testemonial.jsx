@@ -3,7 +3,7 @@ import styles from "./TestemonialsStyles.module.css";
 
 export default function Testemonials() {
   return (
-    <div className={styles.trip}>
+    <div className={styles.trip} id="testemonials">
       <div>
         <h1>
           <span className={styles.gradientText}>Отзиви</span>

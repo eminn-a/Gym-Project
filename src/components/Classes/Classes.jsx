@@ -2,9 +2,8 @@ import styles from "./ClassesStyles.module.css";
 
 export default function Classes() {
   return (
-    <div className={styles.section}>
+    <div className={styles.section} id="classes">
       <h1>
-        {" "}
         <span className={styles.gradientText}>Нашите програми</span>
       </h1>
       <div className={styles.container}>

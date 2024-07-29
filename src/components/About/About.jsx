@@ -3,7 +3,7 @@ import SingleCard from "./SingleCard";
 
 export default function About() {
   return (
-    <div className={styles.trip}>
+    <div className={styles.trip} id="about">
       <h1>
         <span className={styles.gradientText}>Фитнес треньори</span>
       </h1>
