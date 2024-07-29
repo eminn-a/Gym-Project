@@ -5,6 +5,11 @@ nav {
     background-color: black;
     padding: 20px 70px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.46);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
 }
 
 .navbarLinks {
@@ -19,10 +24,13 @@ nav {
     position: relative;
     font-size: 1.3rem;
     font-weight: 600;
-    color: white;
     cursor: pointer;
     width: max-content;
     transition: ease-in-out .3s;
+}
+
+.navbarLinks li a {
+    color: white;
 }
 
 .navbarLinks li:hover,
