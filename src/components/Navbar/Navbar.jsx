@@ -67,27 +67,16 @@ export default function Navbar() {
           }
         >
           <li>
-            <a href="#hero" onClick={(e) => scrollToSection(e, "#hero")}>
-              Начало
-            </a>
+            <a onClick={(e) => scrollToSection(e, "#hero")}>Начало</a>
           </li>
           <li>
-            <a href="#classes" onClick={(e) => scrollToSection(e, "#classes")}>
-              Програми
-            </a>
+            <a onClick={(e) => scrollToSection(e, "#classes")}>Програми</a>
           </li>
           <li>
-            <a href="#about" onClick={(e) => scrollToSection(e, "#about")}>
-              За нас
-            </a>
+            <a onClick={(e) => scrollToSection(e, "#about")}>За нас</a>
           </li>
           <li>
-            <a
-              href="#testemonials"
-              onClick={(e) => scrollToSection(e, "#testemonials")}
-            >
-              Отзиви
-            </a>
+            <a onClick={(e) => scrollToSection(e, "#testemonials")}>Отзиви</a>
           </li>
         </ul>
       </div>
