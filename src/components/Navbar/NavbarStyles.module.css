@@ -1,99 +1,107 @@
 nav {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    background-color: black;
-    padding: 20px 70px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.46);
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: black;
+  padding: 20px 70px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.46);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+}
+.gradientText {
+  background: linear-gradient(270deg, #7e2d2d, #ff0404 100%);
+  background-clip: text;
+  color: transparent;
+  text-shadow: 0 5px 100px red;
+  font-size: 26px;
+  font-weight: 800;
+  font-style: italic;
+  cursor: pointer;
 }
 
 .navbarLinks {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
 }
 
 .navbarLinks li {
-    padding: 0 10px;
-    position: relative;
-    font-size: 1.3rem;
-    font-weight: 600;
-    cursor: pointer;
-    width: max-content;
-    transition: ease-in-out .3s;
+  padding: 0 10px;
+  position: relative;
+  font-size: 1.3rem;
+  font-weight: 600;
+  cursor: pointer;
+  width: max-content;
+  transition: ease-in-out 0.3s;
 }
 
 .navbarLinks li a {
-    color: white;
+  color: white;
 }
 
 .navbarLinks li:hover,
 .navbarLinks li:active {
-    color: red;
+  color: red;
 }
 
 .navbarLinks li::after {
-    content: "";
-    background: linear-gradient(to right, red, black);
-    border-radius: 100px;
-    height: 4px;
-    width: 0;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    transition: ease-in-out .4s;
+  content: "";
+  background: linear-gradient(to right, red, black);
+  border-radius: 100px;
+  height: 4px;
+  width: 0;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  transition: ease-in-out 0.4s;
 }
 
 .navbarLinks li:hover::after,
 .navbarLinks li:active::after {
-    width: 100%;
+  width: 100%;
 }
 
 .mobile {
-    display: none;
+  display: none;
 }
 
 .mobile {
-    color: white;
+  color: white;
 }
 
-@media screen and (max-width:768px) {
+@media screen and (max-width: 768px) {
+  .navbarLinks {
+    background: black;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    position: fixed;
+    top: 60px;
+    right: -300px;
+    width: 250px;
+    height: 100vh;
+    box-shadow: 0 40px 60px rgba(0, 0, 0, 0.1);
+    padding: 40px 0 0 10px;
+    transition: ease-in-out 0.3s;
+    z-index: 999;
+  }
 
-    .navbarLinks {
-        background: black;
-        flex-direction: column;
-        align-items: flex-start;
-        justify-content: flex-start;
-        position: fixed;
-        top: 60px;
-        right: -300px;
-        width: 250px;
-        height: 100vh;
-        box-shadow: 0 40px 60px rgba(0, 0, 0, 0.1);
-        padding: 40px 0 0 10px;
-        transition: ease-in-out .3s;
-        z-index: 999;
-    }
+  .navbarLinks.active {
+    right: 0;
+  }
 
-    .navbarLinks.active {
-        right: 0;
+  .mobile {
+    display: block;
+    cursor: pointer;
+  }
 
-    }
-
-    .mobile {
-        display: block;
-        cursor: pointer;
-    }
-
-    .navbarLinks li {
-        margin-bottom: 25px;
-        padding-left: 50px;
-        width: 90%;
-    }
+  .navbarLinks li {
+    margin-bottom: 25px;
+    padding-left: 50px;
+    width: 90%;
+  }
 }

@@ -5,7 +5,7 @@ const Footer = () => {
     <div className={styles.footer}>
       <div className={styles.top}>
         <div>
-          <h1>Pasha Gym</h1>
+          <h1>YosifFIT </h1>
           <p>
             Подобрете здравето и формата си с нашата комплексна програма,
             създадена специално, за да ви помогне да достигнете и надминете

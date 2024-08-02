@@ -1,91 +1,90 @@
 .section {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    margin-top: 10em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin-top: 10em;
 }
 
 .container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin: 80px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 80px 20px;
 }
 
 img {
-    height: 100%;
-    width: 100%;
-    display: block;
-    object-fit: cover;
-    filter: brightness(75%);
+  height: 100%;
+  width: 100%;
+  display: block;
+  object-fit: cover;
+  filter: brightness(75%);
 }
 
 .card {
-    width: 30%;
-    overflow: hidden;
-    position: relative;
-    box-shadow: 5px 5px 20px black;
-    border-radius: 20px 0 20px 0;
-    filter: grayscale(100%);
-    transition: .3s ease-in-out;
+  width: 30%;
+  overflow: hidden;
+  position: relative;
+  box-shadow: 5px 5px 20px black;
+  border-radius: 20px 0 20px 0;
+  filter: grayscale(100%);
+  transition: 0.3s ease-in-out;
 }
 
 .title {
-    width: 100%;
-    box-sizing: border-box;
-    position: absolute;
-    color: white;
-    top: 3%;
-    padding: 0 2em;
-    text-align: center;
-    flex-wrap: nowrap;
+  width: 100%;
+  box-sizing: border-box;
+  position: absolute;
+  color: white;
+  top: 3%;
+  padding: 0 2em;
+  text-align: center;
+  flex-wrap: nowrap;
 }
 
 .intro {
-    width: 100%;
-    box-sizing: border-box;
-    position: absolute;
-    color: white;
-    bottom: -110%;
-    padding: 0 2em;
-    transition: .4s ease-in-out;
-    font-weight: 700;
-    font-size: 18px;
+  width: 100%;
+  box-sizing: border-box;
+  position: absolute;
+  color: white;
+  bottom: -110%;
+  padding: 0 2em;
+  transition: 0.4s ease-in-out;
+  font-weight: 700;
+  font-size: 18px;
 }
 
 .card:hover {
-    cursor: pointer;
-    filter: none;
+  cursor: pointer;
+  filter: none;
 
-    .intro {
-        bottom: 10%;
-    }
+  .intro {
+    bottom: 10%;
+  }
 }
 
 .gradientText {
-    background: linear-gradient(270deg, #4d1313, #ff0404 100%);
-    background-clip: text;
-    color: transparent;
-    font-size: 2.5em;
+  background: linear-gradient(270deg, #4d1313, #ff0404 100%);
+  background-clip: text;
+  color: transparent;
+  font-size: 2.5em;
 }
 
+@media screen and (max-width: 868px) {
+  .container {
+    flex-direction: column;
+  }
 
-@media screen and (max-width:868px) {
-    .container {
-        flex-direction: column;
-    }
+  .card {
+    width: 90%;
+    margin-bottom: 2em;
+  }
 
-    .card {
-        width: 90%;
-        margin-bottom: 2em;
-    }
+  .intro {
+    bottom: 10%;
+  }
 
-    .intro {
-        bottom: 10%;
-    }
-
-    .gradientText {
-        font-size: 2.7rem;
-    }
+  .gradientText {
+    font-size: 2.5rem;
+  }
 }
