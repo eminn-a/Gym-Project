@@ -30,7 +30,7 @@ export default function PricingTag() {
           <p>Гъвкавост и разтягане</p>
           <p>Мотивация и подкрепа</p>
           <p>Отчетност и прогрес</p>
-        </div>{" "}
+        </div>
         <div className={styles.box}>
           <h1>Единична Тренировка</h1>
           <h3>
