@@ -11,7 +11,7 @@ export default function SingleCard() {
         />
       </div>
       <div className={styles.sTripText}>
-        <i class="fa-regular fa-comment"></i>
+        <i className="fa-regular fa-comment"></i>
         <div className={styles.infoContainer}></div>
         <p>
           Йосиф е отличен фитнес треньор. Той е знаещ, подкрепящ и винаги ме
