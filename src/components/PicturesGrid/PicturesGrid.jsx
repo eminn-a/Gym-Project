@@ -8,9 +8,6 @@ export default function PicturesGrid() {
         <h1>
           <span className={styles.gradientText}>Нашите клиенти</span>
         </h1>
-        {/* <h3>
-          <span className={styles.gradientText}>Our clients</span>
-        </h3> */}
         <p>
           Присъединете се към нашето семейство от доволни клиенти и започнете
           своето пътешествие към по-здравословен и активен начин на живот още

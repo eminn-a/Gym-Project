@@ -23,6 +23,7 @@ export const priceData = [
   },
   {
     title: "Хранителна програма",
+    promo: "ПРОМО ЦЕНА!",
     price: 60,
     details: [
       "Създаване на калориен дефицит",

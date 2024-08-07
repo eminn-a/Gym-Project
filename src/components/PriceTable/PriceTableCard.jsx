@@ -3,6 +3,11 @@ import styles from "./PriceTable.module.css";
 export default function PriceTableCard({ data }) {
   return (
     <div className={`${styles.table} ${styles.basic}`}>
+      {data.promo && (
+        <div className={styles.ribbon}>
+          <span>{data.promo}</span>
+        </div>
+      )}
       <div className={styles.priceSection}>
         <div className={styles.priceArea}>
           <div className={styles.innerArea}>
