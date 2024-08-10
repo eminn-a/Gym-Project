@@ -6,7 +6,7 @@ export default function PricingTag() {
       <h1>Ексклузивни Ценови Оферти</h1>
       <p>
         Изберете от нашите специални ценови планове, които предлагат отлична
-        стойност и гъвкавост.{" "}
+        стойност и гъвкавост.
       </p>
       <div className={styles.price}>
         <div className={styles.box}>
