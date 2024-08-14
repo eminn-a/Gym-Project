@@ -1,4 +1,3 @@
-import { ssrImportKey } from "vite/runtime";
 import styles from "./PicturesGridStyles.module.css";
 
 export default function PicturesGrid() {
