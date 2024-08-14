@@ -5,8 +5,7 @@ export default function Navbar() {
   const [mobileMenu, setMobileMenu] = useState(true);
 
   // Smooth scroll with offset function
-  const scrollToSection = (event, selector) => {
-    event.preventDefault();
+  const scrollToSection = (selector) => {
     const section = document.querySelector(selector);
     const offset = 60;
     window.scrollTo({
@@ -16,7 +15,7 @@ export default function Navbar() {
 
   return (
     <nav>
-      <a onClick={(e) => scrollToSection(e, "#hero")}>
+      <a onClick={() => scrollToSection("#hero")}>
         <span className={styles.gradientText}>
           YosifFIT <i className="fa-solid fa-dumbbell"></i>
         </span>
@@ -30,16 +29,16 @@ export default function Navbar() {
           }
         >
           <li>
-            <a onClick={(e) => scrollToSection(e, "#hero")}>Начало</a>
+            <a onClick={() => scrollToSection("#hero")}>Начало</a>
           </li>
           <li>
-            <a onClick={(e) => scrollToSection(e, "#classes")}>Програми</a>
+            <a onClick={() => scrollToSection("#classes")}>Програми</a>
           </li>
           <li>
-            <a onClick={(e) => scrollToSection(e, "#about")}>За нас</a>
+            <a onClick={() => scrollToSection("#about")}>За нас</a>
           </li>
           <li>
-            <a onClick={(e) => scrollToSection(e, "#testemonials")}>Отзиви</a>
+            <a onClick={() => scrollToSection("#testemonials")}>Отзиви</a>
           </li>
         </ul>
       </div>
