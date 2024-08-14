@@ -8,22 +8,19 @@ import About from "./components/About/About";
 import Testemonials from "./components/Testemonials/Testemonial";
 import PicturesGrid from "./components/PicturesGrid/PicturesGrid";
 import PriceTable from "./components/PriceTable/PriceTable";
-import { BrowserRouter } from "react-router-dom";
 function App() {
   return (
-    <BrowserRouter>
-      <div className="App">
-        <Navbar />
-        <Hero />
-        <Steps />
-        <PicturesGrid />
-        <Classes />
-        <About />
-        <PriceTable />
-        <Testemonials />
-        <Footer />
-      </div>
-    </BrowserRouter>
+    <div className="App">
+      <Navbar />
+      <Hero />
+      <Steps />
+      <PicturesGrid />
+      <Classes />
+      <About />
+      <PriceTable />
+      <Testemonials />
+      <Footer />
+    </div>
   );
 }
 
