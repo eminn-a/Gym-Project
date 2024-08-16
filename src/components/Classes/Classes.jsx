@@ -1,8 +1,7 @@
 import styles from "./ClassesStyles.module.css";
-import { programsData } from "../../data/programsData";
 import ClassesCard from "./ClassesCard";
 
-export default function Classes() {
+export default function Classes({ programsData }) {
   return (
     <div className={styles.section} id="classes">
       <h1>

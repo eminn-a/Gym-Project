@@ -1,8 +1,7 @@
 import styles from "./PriceTable.module.css";
 import PriceTableCard from "./PriceTableCard";
-import { priceData } from "../../data/priceData";
 
-export default function PriceTable() {
+export default function PriceTable({ priceData }) {
   return (
     <div className={styles.wrapper}>
       {priceData.map((x, index) => (

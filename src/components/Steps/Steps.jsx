@@ -1,8 +1,7 @@
 import styles from "./StepsStyles.module.css";
-import { steps } from "../../data/steps";
 import StepsCard from "./StepsCard";
 
-export default function Steps() {
+export default function Steps({ steps }) {
   return (
     <div className={styles.steps}>
       {steps.map((x, index) => (

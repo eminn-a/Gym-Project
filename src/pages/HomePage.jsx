@@ -6,15 +6,20 @@ import Testemonials from "../components/Testemonials/Testemonial";
 import PicturesGrid from "../components/PicturesGrid/PicturesGrid";
 import PriceTable from "../components/PriceTable/PriceTable";
 
+import { heroData } from "../data/heroData";
+import { priceData } from "../data/priceData";
+import { programsData } from "../data/programsData";
+import { steps } from "../data/steps";
+
 export default function HomePage() {
   return (
     <>
-      <Hero />
-      <Steps />
+      <Hero heroData={heroData} />
+      <Steps steps={steps} />
       <PicturesGrid />
-      <Classes />
+      <Classes programsData={programsData} />
       <About />
-      <PriceTable />
+      <PriceTable priceData={priceData} />
       <Testemonials />
     </>
   );
