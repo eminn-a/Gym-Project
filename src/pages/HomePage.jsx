@@ -10,6 +10,7 @@ import { heroData } from "../data/heroData";
 import { priceData } from "../data/priceData";
 import { programsData } from "../data/programsData";
 import { steps } from "../data/steps";
+import { testemonials } from "../data/testemonials";
 
 export default function HomePage() {
   return (
@@ -20,7 +21,7 @@ export default function HomePage() {
       <Classes programsData={programsData} />
       <About />
       <PriceTable priceData={priceData} />
-      <Testemonials />
+      <Testemonials testemonials={testemonials} />
     </>
   );
 }
