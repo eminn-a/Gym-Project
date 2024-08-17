@@ -20,6 +20,7 @@ nav {
   font-size: 26px;
   font-weight: 800;
   font-style: italic;
+  cursor: pointer;
 }
 
 .navbarLinks {
