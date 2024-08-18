@@ -29,6 +29,7 @@ section {
   background: linear-gradient(270deg, #4d1313, #ff0404 100%);
   background-clip: text;
   color: transparent;
+  filter: drop-shadow(1px 1px 2px #757588);
 }
 
 .btnBox {

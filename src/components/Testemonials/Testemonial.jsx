@@ -18,7 +18,7 @@ export default function Testemonials({ testemonials }) {
         if (prevComment === testemonials.length - 1) return 0;
         return prevComment + 1;
       });
-    }, 8000);
+    }, 10000);
 
     return () => clearTimeout(timer); // Cleanup the timer on unmount or when the effect is re-run
   }, [comment, testemonials.length]); // Re-run effect when `comment` changes or `testemonials.length` changes
