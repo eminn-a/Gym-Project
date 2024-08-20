@@ -1,23 +1,20 @@
 import styles from "./AboutStyles.module.css";
 import Yosif from "../../assets/Yosif.png";
 
-export default function SingleCard() {
+export default function SingleCard({ coach, index }) {
+  console.log(index);
+  const cardClass = index % 2 === 0 ? styles.tCard : styles.tCardReverse;
   return (
-    <div className={styles.tCard}>
+    <div className={cardClass}>
       <div className={styles.tImage}>
-        <img src={Yosif} alt="" />
+        <img src={coach.img} alt="" />
       </div>
       <div className={styles.sTripText}>
-        <h4>Йосиф Хаджиев</h4>
+        <h4>
+          {coach.name} {coach.lastName}
+        </h4>
         <div className={styles.infoContainer}></div>
-        <p>
-          Този треньор е специализиран в разнообразни фитнес дисциплини,
-          включително функционални тренировки, HIIT (високоинтензивна интервална
-          тренировка) и силови тренировки, както и създаване на персонализирани
-          хранителни планове. С опит в разработването на комплексни тренировки и
-          диетични стратегии, той съчетава техники от различни области, за да
-          осигури цялостен подход към фитнес и здраве.
-        </p>
+        <p>{coach.description}</p>
       </div>
     </div>
   );

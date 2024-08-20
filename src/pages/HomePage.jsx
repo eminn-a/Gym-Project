@@ -11,6 +11,7 @@ import { priceData } from "../data/priceData";
 import { programsData } from "../data/programsData";
 import { steps } from "../data/steps";
 import { testemonials } from "../data/testemonials";
+import { coaches } from "../data/coaches";
 
 export default function HomePage() {
   return (
@@ -19,7 +20,7 @@ export default function HomePage() {
       <Steps steps={steps} />
       <PicturesGrid />
       <Classes programsData={programsData} />
-      <About />
+      <About coaches={coaches} />
       <PriceTable priceData={priceData} />
       <Testemonials testemonials={testemonials} />
     </>

@@ -1,7 +1,8 @@
 import styles from "./AboutStyles.module.css";
 import SingleCard from "./SingleCard";
 
-export default function About() {
+export default function About({ coaches }) {
+  console.log(coaches);
   return (
     <div className={styles.trip} id="about">
       <h1>
@@ -9,7 +10,9 @@ export default function About() {
       </h1>
       <p>Екип от експертни треньори</p>
       <div className={styles.tripCardContainer}>
-        <SingleCard />
+        {coaches.map((x, index) => (
+          <SingleCard coach={x} key={index} index={index} />
+        ))}
       </div>
     </div>
   );
