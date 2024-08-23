@@ -2,7 +2,6 @@ import styles from "./AboutStyles.module.css";
 import Yosif from "../../assets/Yosif.png";
 
 export default function SingleCard({ coach, index }) {
-  console.log(index);
   const cardClass = index % 2 === 0 ? styles.tCard : styles.tCardReverse;
   return (
     <div className={cardClass}>

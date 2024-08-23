@@ -2,7 +2,6 @@ import styles from "./AboutStyles.module.css";
 import SingleCard from "./SingleCard";
 
 export default function About({ coaches }) {
-  console.log(coaches);
   return (
     <div className={styles.trip} id="about">
       <h1>

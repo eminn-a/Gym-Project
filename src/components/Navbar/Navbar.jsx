@@ -6,6 +6,7 @@ export default function Navbar() {
 
   // Smooth scroll with offset function
   const scrollToSection = (selector) => {
+    setMobileMenu((state) => (state = true));
     const section = document.querySelector(selector);
     const offset = 60;
     window.scrollTo({
