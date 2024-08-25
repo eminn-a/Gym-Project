@@ -14,14 +14,26 @@ nav {
 
 .gradientText {
   background: linear-gradient(270deg, #7e2d2d, #ff0404 100%);
+  -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
-  text-shadow: 0 5px 100px red;
   font-size: 26px;
   font-weight: 800;
   font-style: italic;
-  cursor: pointer;
+  text-shadow: 0 5px 100px red;
+  display: inline-flex;
+  align-items: center;
 }
+
+.gradientText i {
+  font-size: inherit;
+  font-style: inherit;
+  color: inherit;
+  font-style: normal;
+  margin-left: 6px;
+}
+
+
 
 .navbarLinks {
   display: flex;

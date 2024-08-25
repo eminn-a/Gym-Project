@@ -4,21 +4,25 @@ import styles from "./NavbarStyles.module.css";
 export default function Navbar() {
   const [mobileMenu, setMobileMenu] = useState(true);
 
-  // Smooth scroll with offset function
   const scrollToSection = (selector) => {
-    setMobileMenu((state) => (state = true));
+    setMobileMenu(true);
     const section = document.querySelector(selector);
     const offset = 60;
     window.scrollTo({
       top: section.offsetTop - offset,
+      behavior: "smooth", // Added smooth scrolling behavior
     });
   };
 
   return (
     <nav>
-      <a onClick={() => scrollToSection("#hero")}>
+      <a
+        onClick={() => scrollToSection("#hero")}
+        className={styles.gradientText}
+      >
         <span className={styles.gradientText}>
-          YosifFIT <i className="fa-solid fa-dumbbell"></i>
+          YosifFIT{""}
+          <i className="fa-solid fa-dumbbell"></i>
         </span>
       </a>
       <div>
