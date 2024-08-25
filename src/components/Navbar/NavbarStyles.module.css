@@ -23,6 +23,7 @@ nav {
   text-shadow: 0 5px 100px red;
   display: inline-flex;
   align-items: center;
+  cursor: pointer;
 }
 
 .gradientText i {
@@ -32,8 +33,6 @@ nav {
   font-style: normal;
   margin-left: 6px;
 }
-
-
 
 .navbarLinks {
   display: flex;
