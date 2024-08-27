@@ -84,6 +84,23 @@ nav {
   color: white;
 }
 
+.btn {
+  background: linear-gradient(270deg, #7e2d2d, #ff0404 60%);
+  padding: 4px 20px;
+  font-size: 1.3rem;
+  font-weight: 600;
+  border-radius: 4px;
+  cursor: pointer;
+  background-size: 200% 200%;
+  background-position: right;
+  transition: background-position 0.3s ease-in-out;
+}
+
+.btn:hover {
+  background-position: left;
+}
+
+
 @media screen and (max-width: 768px) {
   .navbarLinks {
     background: black;
@@ -111,6 +128,12 @@ nav {
   }
 
   .navbarLinks li {
+    margin-bottom: 25px;
+    padding-left: 50px;
+    width: 90%;
+  }
+
+  .btn {
     margin-bottom: 25px;
     padding-left: 50px;
     width: 90%;
