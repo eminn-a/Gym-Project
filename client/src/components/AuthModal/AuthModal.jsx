@@ -2,11 +2,15 @@ import styles from "./AuthModal.module.css";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
+import { yupResolver } from "@hookform/resolvers/yup";
+import { loginValidation } from "../../validation/loginValidation";
 
 const AuthModal = ({ show, closeModal, setUser }) => {
   const [registered, setRegistered] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
   const [showRePassword, setShowRePassword] = useState(false);
+
+  const validationSchema = loginValidation(registered);
 
   const handleOuterClick = () => {
     closeModal();
@@ -24,7 +28,9 @@ const AuthModal = ({ show, closeModal, setUser }) => {
     handleSubmit,
     reset,
     formState: { errors },
-  } = useForm();
+  } = useForm({
+    resolver: yupResolver(validationSchema),
+  });
 
   const onSubmit = (data) => {
     toast.success("Добре дощли брачед!");
@@ -112,7 +118,11 @@ const AuthModal = ({ show, closeModal, setUser }) => {
                     />
                   </div>
                 </form>
-
+                {errors && (
+                  <p className="errorMsg">
+                    {errors[Object.keys(errors)[0]]?.message}
+                  </p>
+                )}
                 {!registered ? (
                   <div className={styles.signupLink}>
                     <hr />
