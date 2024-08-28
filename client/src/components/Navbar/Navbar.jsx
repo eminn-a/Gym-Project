@@ -4,14 +4,20 @@ import AuthModal from "../AuthModal/AuthModal";
 
 export default function Navbar() {
   const [mobileMenu, setMobileMenu] = useState(true);
-  const [showModal, setShowModal] = useState(true);
+  const [showModal, setShowModal] = useState(false);
 
   const closeModal = () => {
     setShowModal((x) => (x = false));
   };
 
+  const closeMobile = () => {
+    setMobileMenu((x) => (x = true));
+    setShowModal((x) => (x = true));
+  };
+
   const scrollToSection = (selector) => {
     setMobileMenu(true);
+    setShowModal((x) => (x = false));
     const section = document.querySelector(selector);
     const offset = 60;
     window.scrollTo({
@@ -20,7 +26,6 @@ export default function Navbar() {
     });
   };
 
-  console.log(showModal);
   return (
     <>
       <AuthModal show={showModal} closeModal={closeModal} />
@@ -54,10 +59,7 @@ export default function Navbar() {
             <li>
               <a onClick={() => scrollToSection("#testemonials")}>Отзиви</a>
             </li>
-            <div
-              className={styles.btn}
-              onClick={() => setShowModal(!showModal)}
-            >
+            <div className={styles.btn} onClick={closeMobile}>
               Вход
             </div>
           </ul>

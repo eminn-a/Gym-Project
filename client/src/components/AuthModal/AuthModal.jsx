@@ -1,6 +1,7 @@
-import toast from "react-hot-toast";
 import styles from "./AuthModal.module.css";
 import { useState } from "react";
+import { useForm } from "react-hook-form";
+import toast from "react-hot-toast";
 
 const AuthModal = ({ show, closeModal, setUser }) => {
   const [registered, setRegistered] = useState(false);
@@ -18,6 +19,18 @@ const AuthModal = ({ show, closeModal, setUser }) => {
     e.stopPropagation();
   };
 
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors },
+  } = useForm();
+
+  const onSubmit = (data) => {
+    toast.success("Добре дощли брачед!");
+    console.log(data);
+  };
+
   return (
     <div onClick={handleOuterClick}>
       {show ? (
@@ -28,6 +41,7 @@ const AuthModal = ({ show, closeModal, setUser }) => {
                 onClick={() => {
                   closeModal();
                   setRegistered(false);
+                  reset();
                 }}
               >
                 <i className="fa-solid fa-xmark"></i>
@@ -36,24 +50,32 @@ const AuthModal = ({ show, closeModal, setUser }) => {
             <div className={styles.titleText}>
               {registered ? (
                 <div className={`${styles.title} ${styles.signup}`}>
-                  Register now
+                  Регистрирай се
                 </div>
               ) : (
                 <div className={`${styles.title} ${styles.login}`}>
-                  Sign in{" "}
+                  Влез в профила си{" "}
                 </div>
               )}
             </div>
             <div className={styles.formContainer}>
               <div className={styles.formInner}>
-                <form className={styles.login}>
+                <form
+                  className={styles.login}
+                  onSubmit={handleSubmit(onSubmit)}
+                >
                   <div className={styles.field}>
-                    <input type="text" placeholder="Email Address" />
+                    <input
+                      type="text"
+                      placeholder="Имейл"
+                      {...register("email")}
+                    />
                   </div>
                   <div className={styles.field}>
                     <input
                       type={showPassword ? "text" : "password"}
-                      placeholder="Password"
+                      placeholder="Парола"
+                      {...register("password")}
                     />
                     <i
                       onClick={() => setShowPassword(!showPassword)}
@@ -66,7 +88,8 @@ const AuthModal = ({ show, closeModal, setUser }) => {
                     <div className={styles.field}>
                       <input
                         type={showRePassword ? "text" : "password"}
-                        placeholder="Re-Password"
+                        placeholder="Повтори парола"
+                        {...register("rePassword")}
                       />
                       <i
                         onClick={() => setShowRePassword(!showRePassword)}
@@ -78,14 +101,14 @@ const AuthModal = ({ show, closeModal, setUser }) => {
                   )}
                   {!registered && (
                     <div className={styles.passLink}>
-                      <a href="#">Forgot password?</a>
+                      <a href="#">Забравена парола?</a>
                     </div>
                   )}
                   <div className={`${styles.field} ${styles.btn}`}>
                     <div className={styles.btnLayer}></div>
                     <input
                       type="submit"
-                      value={registered ? "Register" : "Sign In"}
+                      value={registered ? "Регистрация" : "Вход"}
                     />
                   </div>
                 </form>
@@ -93,30 +116,32 @@ const AuthModal = ({ show, closeModal, setUser }) => {
                 {!registered ? (
                   <div className={styles.signupLink}>
                     <hr />
-                    Not a member?
+                    Нямаш профил?
                     <p
                       onClick={() => {
                         setRegistered(true);
                         setShowPassword(false);
                         setShowRePassword(false);
+                        reset();
                       }}
                     >
-                      Register now
+                      Регистрирай се!
                     </p>
                     <hr />
                   </div>
                 ) : (
                   <div className={styles.signupLink}>
                     <hr />
-                    Already registered?
+                    Влез в профила си.
                     <p
                       onClick={() => {
                         setRegistered(false);
                         setShowPassword(false);
                         setShowRePassword(false);
+                        reset();
                       }}
                     >
-                      Sign in now
+                      Влез!
                     </p>
                     <hr />
                   </div>
