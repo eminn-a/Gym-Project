@@ -1,7 +1,7 @@
 import toast from "react-hot-toast";
 import { clearUserData, getAccessToken } from "../utils/utils";
 
-const host = import.meta.env.API_BASE_URL;
+const host = import.meta.env.VITE_API_BASE_URL;
 
 const HTTPRequest = async (method, url, data) => {
   const options = {

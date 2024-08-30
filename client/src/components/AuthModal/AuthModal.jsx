@@ -4,6 +4,7 @@ import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { loginValidation } from "../../validation/loginValidation";
+import * as authService from "../../services/authService";
 
 const AuthModal = ({ show, closeModal, setUser }) => {
   const [registered, setRegistered] = useState(false);
@@ -32,9 +33,9 @@ const AuthModal = ({ show, closeModal, setUser }) => {
     resolver: yupResolver(validationSchema),
   });
 
-  const onSubmit = (data) => {
-    toast.success("Добре дощли брачед!");
-    console.log(data);
+  const onSubmit = async (data) => {
+    const response = await authService.register(data.email, data.password);
+    toast.success("Добре дошли!");
   };
 
   return (

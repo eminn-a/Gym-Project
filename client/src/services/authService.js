@@ -7,7 +7,6 @@ const endpoint = {
 };
 
 export async function login(email, password) {
-  console.log(email, password);
   const user = await HTTPRequest.post(endpoint.login, { email, password });
   return user;
 }
