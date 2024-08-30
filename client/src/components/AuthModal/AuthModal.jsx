@@ -34,7 +34,7 @@ const AuthModal = ({ show, closeModal, setUser }) => {
   });
 
   const onSubmit = async (data) => {
-    const response = await authService.register(data.email, data.password);
+    const response = await authService.login(data.email, data.password);
     toast.success("Добре дошли!");
   };
 

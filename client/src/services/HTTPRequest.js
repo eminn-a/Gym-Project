@@ -16,8 +16,10 @@ const HTTPRequest = async (method, url, data) => {
   }
   if (data) {
     options.headers["Content-Type"] = "application/json";
-    options.boy = JSON.stringify(data);
+    options.body = JSON.stringify(data);
   }
+
+  console.log(options);
 
   try {
     const response = await fetch(host + url, options);
