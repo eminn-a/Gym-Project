@@ -12,10 +12,11 @@ import { programsData } from "../data/programsData";
 import { steps } from "../data/steps";
 import { testemonials } from "../data/testemonials";
 import { coaches } from "../data/coaches";
+import { UserProvider } from "../context/authContext";
 
 export default function HomePage() {
   return (
-    <>
+    <UserProvider>
       <Hero heroData={heroData} />
       <Steps steps={steps} />
       <PicturesGrid />
@@ -23,6 +24,6 @@ export default function HomePage() {
       <About coaches={coaches} />
       <PriceTable priceData={priceData} />
       <Testemonials testemonials={testemonials} />
-    </>
+    </UserProvider>
   );
 }

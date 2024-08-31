@@ -5,6 +5,7 @@ import toast from "react-hot-toast";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { loginValidation } from "../../validation/loginValidation";
 import * as authService from "../../services/authService";
+import { setUserData } from "../../utils/utils";
 
 const AuthModal = ({ show, closeModal, setUser }) => {
   const [registered, setRegistered] = useState(false);
@@ -34,8 +35,15 @@ const AuthModal = ({ show, closeModal, setUser }) => {
   });
 
   const onSubmit = async (data) => {
-    const response = await authService.login(data.email, data.password);
-    toast.success("Добре дошли!");
+    try {
+      const user = await authService.login(data.email, data.password);
+      if (user) {
+        setUserData(user);
+        toast.success(`Добре дошъл ${user.email} !`);
+      }
+    } catch (error) {
+      toast.error(error.message);
+    }
   };
 
   return (
