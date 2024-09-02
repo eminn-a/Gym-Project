@@ -7,7 +7,7 @@ export default function Testemonials({ testemonials }) {
 
   function showNextComment() {
     setComment((comment) => {
-      if (comment === testemonials.length - 1) return 0;
+      if (comment === testemonials?.length - 1) return 0;
       return comment + 1;
     });
   }
@@ -15,13 +15,13 @@ export default function Testemonials({ testemonials }) {
   useEffect(() => {
     const timer = setTimeout(() => {
       setComment((prevComment) => {
-        if (prevComment === testemonials.length - 1) return 0;
+        if (prevComment === testemonials?.length - 1) return 0;
         return prevComment + 1;
       });
     }, 10000);
 
-    return () => clearTimeout(timer); // Cleanup the timer on unmount or when the effect is re-run
-  }, [comment, testemonials.length]); // Re-run effect when `comment` changes or `testemonials.length` changes
+    return () => clearTimeout(timer);
+  }, [comment, testemonials.length]);
 
   return (
     <div className={styles.trip} id="testemonials">
@@ -32,7 +32,7 @@ export default function Testemonials({ testemonials }) {
         <p>Мнения на нашите клиенти</p>
       </div>
       <div className={styles.tripCardContainer} onClick={showNextComment}>
-        {testemonials.map((x, index) => (
+        {testemonials?.map((x, index) => (
           <SingleCard key={index} data={x} comment={comment} />
         ))}
       </div>

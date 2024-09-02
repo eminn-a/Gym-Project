@@ -3,6 +3,7 @@ import styles from "./NavbarStyles.module.css";
 import AuthModal from "../AuthModal/AuthModal";
 import { clearUserData } from "../../utils/utils";
 import { UserContext } from "../../context/authContext";
+import { Link } from "react-router-dom";
 
 export default function Navbar() {
   const [mobileMenu, setMobileMenu] = useState(true);
@@ -11,14 +12,13 @@ export default function Navbar() {
 
   const { userData, setUserData, isAdmin } = useContext(UserContext);
 
-  console.log(userData, isAdmin);
   const closeModal = () => {
-    setShowModal((x) => (x = false));
+    setShowModal(false);
   };
 
   const closeMobile = () => {
-    setMobileMenu((x) => (x = true));
-    setShowModal((x) => (x = true));
+    setMobileMenu(true);
+    setShowModal(true);
   };
 
   const toggleProfile = () => {
@@ -27,13 +27,21 @@ export default function Navbar() {
 
   const scrollToSection = (selector) => {
     setMobileMenu(true);
-    setShowModal((x) => (x = false));
+    setShowProfile(false);
+    setShowModal(false);
     const section = document.querySelector(selector);
-    const offset = 60;
-    window.scrollTo({
-      top: section.offsetTop - offset,
-      behavior: "smooth", // Added smooth scrolling behavior
-    });
+    if (section) {
+      const offset = 90;
+      window.scrollTo({
+        top: section.offsetTop - offset,
+        behavior: "smooth",
+      });
+    } else {
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth",
+      });
+    }
   };
 
   return (
@@ -44,15 +52,13 @@ export default function Navbar() {
         setUser={setUserData}
       />
       <nav>
-        <a
-          onClick={() => scrollToSection("#hero")}
+        <Link
+          to="/"
           className={styles.gradientText}
+          onClick={() => scrollToSection()}
         >
-          <span className={styles.gradientText}>
-            YosifFIT{""}
-            <i className="fa-solid fa-dumbbell"></i>
-          </span>
-        </a>
+          YosifFIT <i className="fa-solid fa-dumbbell"></i>
+        </Link>
         <div>
           <ul
             className={
@@ -62,30 +68,41 @@ export default function Navbar() {
             }
           >
             <li>
-              <a onClick={() => scrollToSection("#hero")}>Начало</a>
+              <Link to="/" onClick={() => scrollToSection()}>
+                Начало
+              </Link>
             </li>
             <li>
-              <a onClick={() => scrollToSection("#classes")}>Програми</a>
+              <Link to="/#classes" onClick={() => scrollToSection("#classes")}>
+                Програми
+              </Link>
             </li>
             <li>
-              <a onClick={() => scrollToSection("#about")}>За нас</a>
+              <Link to="/#about" onClick={() => scrollToSection("#about")}>
+                За нас
+              </Link>
             </li>
             <li>
-              <a onClick={() => scrollToSection("#testemonials")}>Отзиви</a>
+              <Link
+                to="/#testemonials"
+                onClick={() => scrollToSection("#testemonials")}
+              >
+                Отзиви
+              </Link>
             </li>
 
             {!userData && (
-              <div className={styles.btn} onClick={closeMobile}>
+              <Link to="/login" className={styles.btn} onClick={closeMobile}>
                 Вход
-              </div>
+              </Link>
             )}
 
             {userData && (
               <>
-                <div className={styles.user} onClick={() => toggleProfile()}>
+                <div className={styles.user} onClick={toggleProfile}>
                   <img
                     src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_640.png"
-                    alt=""
+                    alt="Profile"
                   />
                 </div>
                 <div
@@ -99,45 +116,49 @@ export default function Navbar() {
                     <div className={styles.userInfo}>
                       <img
                         src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_640.png"
-                        alt=""
+                        alt="Profile"
                       />
                       <h2>{userData.email}</h2>
                     </div>
                     <hr />
-                    <a href="" className={styles.subMenuLink}>
+                    <Link
+                      to="comments"
+                      onClick={() => setShowProfile(false)}
+                      className={styles.subMenuLink}
+                    >
                       <i className="fa-solid fa-comment"></i>
-                      <p> Моите коментари</p>
+                      <p>Моите коментари</p>
                       <span>{">"}</span>
-                    </a>
+                    </Link>
                     {isAdmin && (
                       <>
-                        <a href="" className={styles.subMenuLink}>
+                        <Link to="/a" className={styles.subMenuLink}>
                           <i className="fa-solid fa-camera"></i>
                           <p>Нашите клиенти</p>
                           <span>{">"}</span>
-                        </a>
-                        <a href="" className={styles.subMenuLink}>
+                        </Link>
+                        <Link to="" className={styles.subMenuLink}>
                           <i className="fa-solid fa-list-check"></i>
                           <p>Програми</p>
                           <span>{">"}</span>
-                        </a>
-                        <a href="" className={styles.subMenuLink}>
+                        </Link>
+                        <Link to="" className={styles.subMenuLink}>
                           <i className="fa-solid fa-medal"></i>
                           <p>Треньори</p>
                           <span>{">"}</span>
-                        </a>
-                        <a href="" className={styles.subMenuLink}>
+                        </Link>
+                        <Link to="" className={styles.subMenuLink}>
                           <i className="fa-solid fa-sack-dollar"></i>
                           <p>Цени</p>
                           <span>{">"}</span>
-                        </a>
+                        </Link>
                       </>
                     )}
                     <a
                       onClick={() => {
                         clearUserData();
-                        setUserData((x) => (x = null));
-                        setShowProfile((x) => (x = false));
+                        setUserData(null);
+                        setShowProfile(false);
                       }}
                       className={styles.subMenuLink}
                     >

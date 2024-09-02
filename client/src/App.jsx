@@ -1,19 +1,31 @@
-import Navbar from "./components/Navbar/Navbar";
 import HomePage from "./pages/HomePage";
-import Footer from "./components/Footer/Footer";
 import { Toaster } from "react-hot-toast";
-import { UserProvider } from "./context/authContext.jsx";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import RouterLayout from "./pages/RootLayout.jsx";
+import Testemonials from "./components/Testemonials/Testemonial.jsx";
+
+import { testemonials } from "./data/testemonials.js";
 
 function App() {
+  const router = createBrowserRouter([
+    {
+      path: "/",
+      element: <RouterLayout />,
+      children: [
+        { index: true, element: <HomePage /> },
+        {
+          path: "comments",
+          element: <Testemonials testemonials={testemonials} />,
+        },
+      ],
+    },
+  ]);
+
   return (
-    <UserProvider>
-      <div className="App">
-        <Toaster />
-        <Navbar />
-        <HomePage />
-        <Footer />
-      </div>
-    </UserProvider>
+    <>
+      <Toaster />
+      <RouterProvider router={router} />
+    </>
   );
 }
 
