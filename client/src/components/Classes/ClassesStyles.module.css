@@ -6,6 +6,11 @@
   margin-top: 10em;
 }
 
+.section p {
+  font-size: 1.1rem;
+  margin-bottom: 0.5em;
+}
+
 .container {
   display: flex;
   justify-content: space-between;

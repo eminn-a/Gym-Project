@@ -140,17 +140,29 @@ export default function Navbar() {
                           <p>Нашите клиенти</p>
                           <span>{">"}</span>
                         </Link>
-                        <Link to="" className={styles.subMenuLink}>
+                        <Link
+                          to="/programs"
+                          className={styles.subMenuLink}
+                          onClick={() => setShowProfile(false)}
+                        >
                           <i className="fa-solid fa-list-check"></i>
                           <p>Програми</p>
                           <span>{">"}</span>
                         </Link>
-                        <Link to="" className={styles.subMenuLink}>
+                        <Link
+                          to="about"
+                          className={styles.subMenuLink}
+                          onClick={() => setShowProfile(false)}
+                        >
                           <i className="fa-solid fa-medal"></i>
                           <p>Треньори</p>
                           <span>{">"}</span>
                         </Link>
-                        <Link to="" className={styles.subMenuLink}>
+                        <Link
+                          to="price"
+                          className={styles.subMenuLink}
+                          onClick={() => setShowProfile(false)}
+                        >
                           <i className="fa-solid fa-sack-dollar"></i>
                           <p>Цени</p>
                           <span>{">"}</span>

@@ -1,9 +1,31 @@
+.section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin-top: 10em;
+}
+
+.gradientText {
+    background: linear-gradient(270deg, #4d1313, #ff0404 100%);
+    background-clip: text;
+    color: transparent;
+    font-size: 2.5em;
+    filter: drop-shadow(1px 1px 2px #757588);
+}
+
+.section p {
+    font-size: 1.1rem;
+    margin-bottom: 0.5em;
+}
+
 .wrapper {
     width: 90%;
     display: flex;
     margin: auto;
     justify-content: space-between;
     padding: 20px;
+    margin: 80px 20px 145px 20px;
 }
 
 .table {

@@ -7,6 +7,7 @@ export default function Classes({ programsData }) {
       <h1>
         <span className={styles.gradientText}>Нашите програми</span>
       </h1>
+      <p>Разнообразие от всякакъв вид програми</p>
       <div className={styles.container}>
         {programsData.map((x, index) => (
           <ClassesCard key={index} data={x} />
