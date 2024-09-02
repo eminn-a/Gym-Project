@@ -103,7 +103,7 @@ nav {
 
 
 .user {
-  height: 50px;
+  height: 40px;
   cursor: pointer;
   margin-left: 1em;
 }
@@ -237,7 +237,7 @@ nav {
 
   .subWrap {
     position: relative;
-    top: 41%;
+    top: 15%;
     right: 4%;
     width: 260px;
     max-height: 100%;
@@ -251,10 +251,14 @@ nav {
     width: 40px;
     height: 40px;
   }
-}
 
-@media screen and (max-width: 425px) {
-  .subWrap {
-    top: 21%;
+  .userInfo h2 {
+    font-size: 15px;
   }
 }
+
+/* @media screen and (max-width: 425px) {
+  .subWrap {
+    top: 15%;
+  }
+} */

@@ -1,5 +1,5 @@
 import styles from "./AuthModal.module.css";
-import { useState } from "react";
+import { useState, useTransition } from "react";
 import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
 import { yupResolver } from "@hookform/resolvers/yup";
@@ -39,7 +39,10 @@ const AuthModal = ({ show, closeModal, setUser }) => {
       const user = await authService.login(data.email, data.password);
       if (user) {
         setUserData(user);
+        setUser((x) => (x = user));
         toast.success(`Добре дошъл ${user.email} !`);
+        reset();
+        closeModal();
       }
     } catch (error) {
       toast.error(error.message);
