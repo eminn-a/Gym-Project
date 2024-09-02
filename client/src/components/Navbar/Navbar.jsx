@@ -92,9 +92,12 @@ export default function Navbar() {
             </li>
 
             {!userData && (
-              <Link to="/login" className={styles.btn} onClick={closeMobile}>
+              <div
+                className={styles.btn}
+                onClick={() => setShowModal(!showModal)}
+              >
                 Вход
-              </Link>
+              </div>
             )}
 
             {userData && (
