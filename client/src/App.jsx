@@ -11,6 +11,7 @@ import { testemonials } from "./data/testemonials.js";
 import { programsData } from "./data/programsData";
 import { coaches } from "./data/coaches";
 import { priceData } from "./data/priceData";
+import Mycomments from "./components/MyComments/MyComments.jsx";
 
 function App() {
   const router = createBrowserRouter([
@@ -21,7 +22,7 @@ function App() {
         { index: true, element: <HomePage /> },
         {
           path: "comments",
-          element: <Testemonials testemonials={testemonials} />,
+          element: <Mycomments comments={testemonials} />,
         },
         {
           path: "programs",

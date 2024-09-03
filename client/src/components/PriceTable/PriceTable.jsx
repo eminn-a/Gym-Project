@@ -4,9 +4,9 @@ import PriceTableCard from "./PriceTableCard";
 export default function PriceTable({ priceData }) {
   return (
     <div className={styles.section} id="classes">
-      <h1>
+      <h4>
         <span className={styles.gradientText}>Нашите цени</span>
-      </h1>
+      </h4>
       <p>Мнения на нашите клиенти</p>
       <div className={styles.wrapper}>
         {priceData.map((x, index) => (

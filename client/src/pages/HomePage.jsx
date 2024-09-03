@@ -13,24 +13,28 @@ import { steps } from "../data/steps";
 import { testemonials } from "../data/testemonials";
 import { coaches } from "../data/coaches";
 import { useEffect } from "react";
+import { useLocation } from "react-router-dom";
 
 export default function HomePage() {
+  const location = useLocation();
+
   useEffect(() => {
     if (location.hash) {
-      console.log(location);
       const section = document.querySelector(location.hash);
       if (section) {
         const offset = 90;
         window.scrollTo({
           top: section.offsetTop - offset,
+          behavior: "smooth",
         });
       }
     } else {
       window.scrollTo({
         top: 0,
+        behavior: "smooth",
       });
     }
-  }, [location]);
+  }, [location.hash]);
 
   return (
     <>

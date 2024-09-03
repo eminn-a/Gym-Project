@@ -16,9 +16,13 @@ export default function Navbar() {
     setShowModal(false);
   };
 
-  const closeMobile = () => {
+  const closeProfileclick = () => {
+    setShowProfile(false);
     setMobileMenu(true);
-    setShowModal(true);
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
   };
 
   const toggleProfile = () => {
@@ -55,7 +59,7 @@ export default function Navbar() {
         <Link
           to="/"
           className={styles.gradientText}
-          onClick={() => scrollToSection()}
+          onClick={() => scrollToSection(null)}
         >
           YosifFIT <i className="fa-solid fa-dumbbell"></i>
         </Link>
@@ -68,7 +72,7 @@ export default function Navbar() {
             }
           >
             <li>
-              <Link to="/" onClick={() => scrollToSection()}>
+              <Link to="/" onClick={() => scrollToSection(null)}>
                 Начало
               </Link>
             </li>
@@ -94,7 +98,10 @@ export default function Navbar() {
             {!userData && (
               <div
                 className={styles.btn}
-                onClick={() => setShowModal(!showModal)}
+                onClick={() => {
+                  setMobileMenu(true);
+                  setShowModal(!showModal);
+                }}
               >
                 Вход
               </div>
@@ -126,7 +133,7 @@ export default function Navbar() {
                     <hr />
                     <Link
                       to="comments"
-                      onClick={() => setShowProfile(false)}
+                      onClick={closeProfileclick}
                       className={styles.subMenuLink}
                     >
                       <i className="fa-solid fa-comment"></i>
@@ -141,9 +148,9 @@ export default function Navbar() {
                           <span>{">"}</span>
                         </Link>
                         <Link
-                          to="/programs"
+                          to="programs"
                           className={styles.subMenuLink}
-                          onClick={() => setShowProfile(false)}
+                          onClick={closeProfileclick}
                         >
                           <i className="fa-solid fa-list-check"></i>
                           <p>Програми</p>
@@ -152,7 +159,7 @@ export default function Navbar() {
                         <Link
                           to="about"
                           className={styles.subMenuLink}
-                          onClick={() => setShowProfile(false)}
+                          onClick={closeProfileclick}
                         >
                           <i className="fa-solid fa-medal"></i>
                           <p>Треньори</p>
@@ -161,7 +168,7 @@ export default function Navbar() {
                         <Link
                           to="price"
                           className={styles.subMenuLink}
-                          onClick={() => setShowProfile(false)}
+                          onClick={closeProfileclick}
                         >
                           <i className="fa-solid fa-sack-dollar"></i>
                           <p>Цени</p>
