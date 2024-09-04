@@ -12,10 +12,13 @@ import { programsData } from "../data/programsData";
 import { steps } from "../data/steps";
 import { testemonials } from "../data/testemonials";
 import { coaches } from "../data/coaches";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
+import * as commentService from "../services/commentService";
 
 export default function HomePage() {
+  const [comments, setcomments] = useState([]);
+
   const location = useLocation();
 
   useEffect(() => {
@@ -36,6 +39,9 @@ export default function HomePage() {
     }
   }, [location.hash]);
 
+  useEffect(() => {
+    const res = commentService.getAll().then((res) => setcomments(res));
+  }, []);
   return (
     <>
       <Hero heroData={heroData} />
@@ -44,7 +50,7 @@ export default function HomePage() {
       <Classes programsData={programsData} />
       <About coaches={coaches} />
       <PriceTable priceData={priceData} />
-      <Testemonials testemonials={testemonials} />
+      <Testemonials testemonials={comments} />
     </>
   );
 }

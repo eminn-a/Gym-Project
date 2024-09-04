@@ -4,7 +4,7 @@ import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { loginValidation } from "../../validation/loginValidation";
-import * as authService from "../../services/authService";
+import * as commentService from "../../services/commentService";
 import { setUserData } from "../../utils/utils";
 import { commentValidator } from "../../validation/commentValidator";
 
@@ -36,7 +36,8 @@ const CommentModal = ({ show, closeModal }) => {
   });
 
   const onSubmit = (data) => {
-    console.log(data);
+    const result = commentService.create(data);
+    console.log(result);
   };
 
   return (
