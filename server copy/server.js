@@ -1492,7 +1492,7 @@
     },
     comments: {
       1: {
-        _ownerId: "35c62d76-8152-4626-8712-eeb96381bea8",
+        _ownerId: "60f0cf0b-34b0-4abd-9769-8c42f830dffc",
         firstName: "Моника",
         lastName: "Белучи",
         img: "https://images.pexels.com/photos/416809/pexels-photo-416809.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
@@ -1502,7 +1502,7 @@
         _id: "1",
       },
       2: {
-        _ownerId: "35c62d76-8152-4626-8712-eeb96381bea8",
+        _ownerId: "60f0cf0b-34b0-4abd-9769-8c42f830dffc",
         firstName: "Десислава",
         lastName: "Неделчева",
         img: "https://images.pexels.com/photos/13989859/pexels-photo-13989859.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
@@ -1512,7 +1512,7 @@
         _id: "2",
       },
       3: {
-        _ownerId: "35c62d76-8152-4626-8712-eeb96381bea8",
+        _ownerId: "60f0cf0b-34b0-4abd-9769-8c42f830dffc",
         firstName: "Иван",
         lastName: "Димов",
         img: "https://images.pexels.com/photos/4976933/pexels-photo-4976933.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",

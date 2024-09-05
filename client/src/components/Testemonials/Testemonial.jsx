@@ -3,24 +3,29 @@ import SingleCard from "./SingleCard";
 import styles from "./TestemonialsStyles.module.css";
 
 export default function Testemonials({ testemonials, error, isLoading }) {
-  const [comment, setComment] = useState(null);
+  const [comment, setComment] = useState(0);
+
   function showNextComment() {
-    setComment((comment) => {
-      if (comment === testemonials?.length - 1) return 0;
-      return comment + 1;
-    });
+    if (testemonials.length > 1) {
+      setComment((prevComment) => {
+        if (prevComment === testemonials.length - 1) return 0;
+        return prevComment + 1;
+      });
+    }
   }
 
   useEffect(() => {
-    const timer = setTimeout(() => {
-      setComment((prevComment) => {
-        if (prevComment === testemonials?.length - 1) return 0;
-        return prevComment + 1;
-      });
-    }, 8000);
+    if (testemonials.length > 1) {
+      const timer = setTimeout(() => {
+        setComment((prevComment) => {
+          if (prevComment === testemonials.length - 1) return 0;
+          return prevComment + 1;
+        });
+      }, 8000);
 
-    return () => clearTimeout(timer);
-  }, [comment]);
+      return () => clearTimeout(timer);
+    }
+  }, [comment, testemonials]);
 
   if (error) {
     return (
@@ -29,6 +34,7 @@ export default function Testemonials({ testemonials, error, isLoading }) {
       </div>
     );
   }
+
   if (isLoading) {
     return (
       <div>

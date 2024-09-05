@@ -58,7 +58,7 @@ export default function HomePage() {
       <About coaches={coaches} />
       <PriceTable priceData={priceData} />
       <Testemonials
-        testemonials={comments}
+        testemonials={comments || []}
         isLoading={isCommentsLoading}
         error={commentsError}
       />

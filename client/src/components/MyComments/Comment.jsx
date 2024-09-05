@@ -1,6 +1,6 @@
 import styles from "./MyCommentsStyles.module.css";
 
-export default function Comment({ data }) {
+export default function Comment({ data, onDelete }) {
   return (
     <div className={styles.tCard}>
       <div className={styles.tImage}>
@@ -13,7 +13,12 @@ export default function Comment({ data }) {
         <h4>{`${data.firstName} ${data.lastName}`}</h4>
         <div className={styles.buttons}>
           <div className={styles.editBtn}>Edit</div>
-          <div className={styles.deleteBtn}>Delete</div>
+          <div
+            className={styles.deleteBtn}
+            onClick={() => onDelete(data._id, data.firstName, data.lastName)}
+          >
+            Delete
+          </div>
         </div>
       </div>
     </div>

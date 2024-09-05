@@ -102,7 +102,8 @@
 
 .buttons {
     display: flex;
-    gap: .5em
+    justify-content: center;
+    gap: .9em;
 }
 
 .editBtn {
@@ -169,6 +170,11 @@
     .gradientText {
         font-size: 2.7rem;
     }
+
+    .buttons {
+        justify-content: center;
+    }
+
 }
 
 @media screen and (max-width: 550px) {
