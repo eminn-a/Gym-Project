@@ -10,6 +10,7 @@ export const commentValidator = (isRegistering) => {
       .string()
       .required("Въведете фамилия!")
       .min(3, "Фамилията трябва да е 3 символа!"),
+    img: yup.string().required("Въведете снимка!"),
     description: yup
       .string()
       .required("Въведете коментара си!")

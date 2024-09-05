@@ -20,6 +20,7 @@ const AuthModal = ({ show, closeModal, setUser }) => {
     setShowPassword(false);
     setShowRePassword(false);
     setRegistered(false);
+    reset();
   };
 
   const handleInnerClick = (e) => {

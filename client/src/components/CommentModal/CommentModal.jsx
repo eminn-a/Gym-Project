@@ -1,18 +1,21 @@
 import styles from "./CommentModalStyles.module.css";
 import { useState, useTransition } from "react";
 import { useForm } from "react-hook-form";
-import toast from "react-hot-toast";
 import { yupResolver } from "@hookform/resolvers/yup";
+import toast from "react-hot-toast";
+import { useNavigate } from "react-router-dom";
 import { loginValidation } from "../../validation/loginValidation";
-import * as commentService from "../../services/commentService";
 import { setUserData } from "../../utils/utils";
+import * as commentService from "../../services/commentService";
 import { commentValidator } from "../../validation/commentValidator";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
 
 const CommentModal = ({ show, closeModal }) => {
   const [registered, setRegistered] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
   const [showRePassword, setShowRePassword] = useState(false);
 
+  const navigate = useNavigate();
   const validationSchema = commentValidator();
 
   const handleOuterClick = () => {
@@ -35,9 +38,19 @@ const CommentModal = ({ show, closeModal }) => {
     resolver: yupResolver(validationSchema),
   });
 
+  const commentMutation = useMutation({
+    mutationFn: (data) => commentService.create(data),
+    onSuccess: () => {
+      navigate("/");
+      toast.success("Коментара беше изпратен!");
+    },
+    onError: (error) => {
+      toast.error(`${error.message}`);
+    },
+  });
+
   const onSubmit = (data) => {
-    const result = commentService.create(data);
-    console.log(result);
+    commentMutation.mutate(data);
   };
 
   return (
@@ -79,6 +92,13 @@ const CommentModal = ({ show, closeModal }) => {
                       type="text"
                       placeholder="Фамилия"
                       {...register("lastName")}
+                    />
+                  </div>
+                  <div className={styles.field}>
+                    <input
+                      type="text"
+                      placeholder="Снимка"
+                      {...register("img")}
                     />
                   </div>
                   <div className={styles.field}>
