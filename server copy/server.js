@@ -1495,7 +1495,7 @@
         _ownerId: "35c62d76-8152-4626-8712-eeb96381bea8",
         firstName: "Моника",
         lastName: "Белучи",
-        img: "https://images.pexels.com/photos/2105493/pexels-photo-2105493.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        img: "https://images.pexels.com/photos/416809/pexels-photo-416809.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
         description:
           "Йосиф е отличен фитнес треньор. Той е знаещ, подкрепящ и винаги ме мотивира да давам най-доброто от себе си. Благодарение на неговите насоки виждам големи подобрения в моята физическа форма.",
         _createdOn: 1614260666375,
@@ -1504,8 +1504,8 @@
       2: {
         _ownerId: "35c62d76-8152-4626-8712-eeb96381bea8",
         firstName: "Десислава",
-        lastName: "Белучи",
-        img: "https://images.pexels.com/photos/2105493/pexels-photo-2105493.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        lastName: "Неделчева",
+        img: "https://images.pexels.com/photos/13989859/pexels-photo-13989859.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
         description:
           "Йосиф е отличен фитнес треньор. Той е знаещ, подкрепящ и винаги ме мотивира да давам най-доброто от себе си. Благодарение на неговите насоки виждам големи подобрения в моята физическа форма.",
         _createdOn: 1614260681375,
@@ -1513,9 +1513,9 @@
       },
       3: {
         _ownerId: "35c62d76-8152-4626-8712-eeb96381bea8",
-        firstName: "Верпника",
-        lastName: "Белучи",
-        img: "https://images.pexels.com/photos/2105493/pexels-photo-2105493.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        firstName: "Иван",
+        lastName: "Димов",
+        img: "https://images.pexels.com/photos/4976933/pexels-photo-4976933.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
         description:
           "Йосиф е отличен фитнес треньор. Той е знаещ, подкрепящ и винаги ме мотивира да давам най-доброто от себе си. Благодарение на неговите насоки виждам големи подобрения в моята физическа форма.",
         _createdOn: 1614260121375,

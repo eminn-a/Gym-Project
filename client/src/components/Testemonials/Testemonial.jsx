@@ -2,9 +2,8 @@ import { useEffect, useState } from "react";
 import SingleCard from "./SingleCard";
 import styles from "./TestemonialsStyles.module.css";
 
-export default function Testemonials({ testemonials }) {
-  const [comment, setComment] = useState(0);
-
+export default function Testemonials({ testemonials, error, isLoading }) {
+  const [comment, setComment] = useState(null);
   function showNextComment() {
     setComment((comment) => {
       if (comment === testemonials?.length - 1) return 0;
@@ -18,10 +17,25 @@ export default function Testemonials({ testemonials }) {
         if (prevComment === testemonials?.length - 1) return 0;
         return prevComment + 1;
       });
-    }, 10000);
+    }, 8000);
 
     return () => clearTimeout(timer);
-  }, [comment, testemonials.length]);
+  }, [comment]);
+
+  if (error) {
+    return (
+      <div>
+        <h1>Error!</h1>
+      </div>
+    );
+  }
+  if (isLoading) {
+    return (
+      <div>
+        <h1>Loading...</h1>
+      </div>
+    );
+  }
 
   return (
     <div className={styles.trip} id="testemonials">

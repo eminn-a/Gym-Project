@@ -16,8 +16,17 @@ import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import * as commentService from "../services/commentService";
 
+import { useQuery } from "@tanstack/react-query";
+
 export default function HomePage() {
-  const [comments, setcomments] = useState([]);
+  const {
+    data: comments,
+    isLoading: isCommentsLoading,
+    error: commentsError,
+  } = useQuery({
+    queryKey: ["comments"],
+    queryFn: () => commentService.getAll(),
+  });
 
   const location = useLocation();
 
@@ -39,9 +48,6 @@ export default function HomePage() {
     }
   }, [location.hash]);
 
-  useEffect(() => {
-    const res = commentService.getAll().then((res) => setcomments(res));
-  }, []);
   return (
     <>
       <Hero heroData={heroData} />
@@ -50,7 +56,11 @@ export default function HomePage() {
       <Classes programsData={programsData} />
       <About coaches={coaches} />
       <PriceTable priceData={priceData} />
-      <Testemonials testemonials={comments} />
+      <Testemonials
+        testemonials={comments}
+        isLoading={isCommentsLoading}
+        error={commentsError}
+      />
     </>
   );
 }
