@@ -3,7 +3,7 @@ import * as HTTPRequest from "./HTTPRequest";
 const endpoints = {
   all: "/data/comments?sortBy=_createdOn%20des",
   getLatest: (number) => {
-    return `/data/blogs?limit=${number}`;
+    return `/data/comments?limit=${number}`;
   },
   create: "/data/comments",
   byId: "/data/comments/",

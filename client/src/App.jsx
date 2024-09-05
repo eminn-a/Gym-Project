@@ -12,6 +12,7 @@ import { programsData } from "./data/programsData";
 import { coaches } from "./data/coaches";
 import { priceData } from "./data/priceData";
 import Mycomments from "./components/MyComments/MyComments.jsx";
+import CommentsPage from "./pages/CommentsPage.jsx";
 
 function App() {
   const router = createBrowserRouter([
@@ -22,7 +23,7 @@ function App() {
         { index: true, element: <HomePage /> },
         {
           path: "comments",
-          element: <Mycomments comments={testemonials} />,
+          element: <CommentsPage />,
         },
         {
           path: "programs",
