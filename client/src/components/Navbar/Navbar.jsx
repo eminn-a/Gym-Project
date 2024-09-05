@@ -4,6 +4,9 @@ import AuthModal from "../AuthModal/AuthModal";
 import { clearUserData } from "../../utils/utils";
 import { UserContext } from "../../context/authContext";
 import { Link } from "react-router-dom";
+import * as authService from "../../services/authService";
+import { useMutation } from "@tanstack/react-query";
+import toast from "react-hot-toast";
 
 export default function Navbar() {
   const [mobileMenu, setMobileMenu] = useState(true);
@@ -15,6 +18,20 @@ export default function Navbar() {
   const closeModal = () => {
     setShowModal(false);
   };
+
+  const logoutUserMutation = useMutation({
+    mutationFn: () => authService.logout(),
+    onSuccess: () => {
+      clearUserData();
+      setUserData(null);
+      toast.success("Довиждане!");
+      setShowProfile(false);
+      setMobileMenu(true);
+    },
+    onError: (error) => {
+      toast.error(`Logout failed: ${error.message}`);
+    },
+  });
 
   const closeProfileclick = () => {
     setShowProfile(false);
@@ -178,9 +195,7 @@ export default function Navbar() {
                     )}
                     <a
                       onClick={() => {
-                        clearUserData();
-                        setUserData(null);
-                        setShowProfile(false);
+                        logoutUserMutation.mutate();
                       }}
                       className={styles.subMenuLink}
                     >
