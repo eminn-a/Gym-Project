@@ -13,12 +13,14 @@ import { coaches } from "./data/coaches";
 import { priceData } from "./data/priceData";
 import Mycomments from "./components/MyComments/MyComments.jsx";
 import CommentsPage from "./pages/CommentsPage.jsx";
+import Page404 from "./components/404/404Page.jsx";
 
 function App() {
   const router = createBrowserRouter([
     {
       path: "/",
       element: <RouterLayout />,
+      errorElement: <Page404 />,
       children: [
         { index: true, element: <HomePage /> },
         {
