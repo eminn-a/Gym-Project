@@ -6,6 +6,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { loginValidation } from "../../validation/loginValidation";
 import * as authService from "../../services/authService";
 import { setUserData } from "../../utils/utils";
+import { useMutation } from "@tanstack/react-query";
 
 const AuthModal = ({ show, closeModal, setUser }) => {
   const [registered, setRegistered] = useState(false);
@@ -34,18 +35,44 @@ const AuthModal = ({ show, closeModal, setUser }) => {
     resolver: yupResolver(validationSchema),
   });
 
-  const onSubmit = async (data) => {
-    try {
-      const user = await authService.login(data.email, data.password);
+  const loginUserMutation = useMutation({
+    mutationFn: (data) => authService.login(data.email, data.password),
+    onSuccess: (user) => {
       if (user) {
         setUserData(user);
-        setUser((x) => (x = user));
-        toast.success(`Добре дошъл ${user.email} !`);
-        reset();
+        setUser({ ...user });
         closeModal();
+        reset();
+        toast.success(`Здравей, ${user.email}`);
       }
-    } catch (error) {
+    },
+    onError: (error) => {
       toast.error(error.message);
+    },
+  });
+
+  const createUserMutation = useMutation({
+    mutationFn: (data) => authService.register(data.email, data.password),
+    onSuccess: (user) => {
+      if (user) {
+        setUserData(user);
+        setUser({ ...user });
+        closeModal();
+        reset();
+        setRegistered(false);
+        toast.success(`Здравей, ${user.email}`);
+      }
+    },
+    onError: (error) => {
+      toast.error(error.message);
+    },
+  });
+
+  const onSubmit = async (data) => {
+    if (registered) {
+      createUserMutation.mutate(data);
+    } else {
+      loginUserMutation.mutate(data);
     }
   };
 
@@ -127,6 +154,7 @@ const AuthModal = ({ show, closeModal, setUser }) => {
                     <input
                       type="submit"
                       value={registered ? "Регистрация" : "Вход"}
+                      disabled={loginUserMutation.isLoading}
                     />
                   </div>
                 </form>

@@ -26,6 +26,7 @@ export default function HomePage() {
   } = useQuery({
     queryKey: ["comments"],
     queryFn: () => commentService.getAll(),
+    retry: 1,
   });
 
   const location = useLocation();
