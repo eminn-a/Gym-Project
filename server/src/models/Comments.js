@@ -8,12 +8,6 @@ const commentSchema = new mongoose.Schema(
     img: {
       type: String,
       required: true,
-      validate: {
-        validator: function (v) {
-          return Array.isArray(v) && v.length >= 2;
-        },
-        message: "The images field must contain at least 2 images",
-      },
     },
     _ownerId: { type: mongoose.Types.ObjectId, ref: "User" },
   },
@@ -21,3 +15,6 @@ const commentSchema = new mongoose.Schema(
     timestamps: true,
   }
 );
+const Comment = mongoose.model("Comment", commentSchema);
+
+module.exports = Comment;

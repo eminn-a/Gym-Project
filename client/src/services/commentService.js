@@ -1,7 +1,8 @@
 import * as HTTPRequest from "./HTTPRequest";
 
 const endpoints = {
-  all: "/data/comments?sortBy=_createdOn%20des",
+  // all: "/data/comments?sortBy=_createdOn%20des",
+  all: "/data/comments",
   getLatest: (number) => {
     return `/data/comments?limit=${number}`;
   },
