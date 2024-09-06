@@ -13,7 +13,7 @@ export const UserProvider = ({ children }) => {
     }
   }, []);
 
-  const adminEmail = "admin@abv.bg";
+  const adminEmail = "admin@gmail.com";
 
   return (
     <UserContext.Provider

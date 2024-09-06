@@ -1,4 +1,5 @@
 require("dotenv").config();
+
 const express = require("express");
 const cors = require("cors");
 const mongoose = require("mongoose");
@@ -7,17 +8,16 @@ const routes = require("./routes");
 const { auth } = require("./middlewares/authMiddleware");
 
 const app = express();
-const PORT = 3030;
+const PORT = process.env.PORT || 3030;
 
-//Middleware Configurations
-app.use(express.urlencoded({ extended: false })); //urlencoded,querystring
-app.use(express.json()); //application/json->AJAX requests
+app.use(express.urlencoded({ extended: false }));
+app.use(express.json());
 app.use(cors());
 app.use(auth);
 app.use(routes);
 
-const uri = "mongodb://127.0.0.1:27017/yosifFIT";
-const mongoDBURI = process.env.MONGO_URI || uri;
+const mongoDBURI =
+  process.env.MONGO_URI || "mongodb://127.0.0.1:27017/yosifFIT";
 mongoose
   .connect(mongoDBURI)
   .then(() => console.log("DB connected"))

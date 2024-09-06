@@ -1,20 +1,19 @@
 import styles from "./CommentModalStyles.module.css";
-import { useState, useTransition } from "react";
+import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
-import { loginValidation } from "../../validation/loginValidation";
-import { setUserData } from "../../utils/utils";
 import * as commentService from "../../services/commentService";
 import { commentValidator } from "../../validation/commentValidator";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 
-const CommentModal = ({ show, closeModal }) => {
+const CommentModal = ({ show, closeModal, editData }) => {
   const [registered, setRegistered] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
   const [showRePassword, setShowRePassword] = useState(false);
 
+  const queryClient = useQueryClient();
   const navigate = useNavigate();
   const validationSchema = commentValidator();
 
@@ -36,7 +35,26 @@ const CommentModal = ({ show, closeModal }) => {
     formState: { errors },
   } = useForm({
     resolver: yupResolver(validationSchema),
+    defaultValues: editData
+      ? {
+          firstName: editData.firstName,
+          lastName: editData.lastName,
+          img: editData.img,
+          description: editData.description,
+        }
+      : {},
   });
+
+  useEffect(() => {
+    if (editData) {
+      reset({
+        firstName: editData.firstName,
+        lastName: editData.lastName,
+        img: editData.img,
+        description: editData.description,
+      });
+    }
+  }, [editData, reset]);
 
   const commentMutation = useMutation({
     mutationFn: (data) => commentService.create(data),
@@ -49,8 +67,25 @@ const CommentModal = ({ show, closeModal }) => {
     },
   });
 
+  const commentUpdateMutation = useMutation({
+    mutationFn: (data, id) => commentService.update(data, data._id),
+    onSuccess: () => {
+      queryClient.invalidateQueries("userComments");
+      navigate("/comments");
+      toast.success("Коментара беше променен!");
+    },
+    onError: (error) => {
+      toast.error(`${error.message}`);
+    },
+  });
+
   const onSubmit = (data) => {
-    commentMutation.mutate(data);
+    if (editData) {
+      const updatedData = { ...data, _id: editData._id };
+      commentUpdateMutation.mutate(updatedData);
+    } else {
+      commentMutation.mutate(data);
+    }
   };
 
   return (

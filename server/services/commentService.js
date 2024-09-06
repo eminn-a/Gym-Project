@@ -4,8 +4,7 @@ exports.getAll = () => Comment.find();
 
 exports.create = (userComment) => Comment.create(userComment);
 
-exports.updateById = (id, updateData) => {
+exports.updateById = (id, updateData) =>
   Comment.findByIdAndUpdate(id, updateData);
-};
 
 exports.delete = (id) => Comment.findByIdAndDelete(id);

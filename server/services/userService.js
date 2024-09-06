@@ -33,7 +33,7 @@ function getAuthResult(user) {
     email: user.email,
   };
 
-  const token = jwt.sign(payload, "SECRETSECRET", { expiresIn: "2d" });
+  const token = jwt.sign(payload, process.env.JWT_SECRET, { expiresIn: "2d" });
   const result = {
     _id: user._id,
     email: user.email,
