@@ -14,6 +14,7 @@ const HTTPRequest = async (method, url, data) => {
   if (token) {
     options.headers["X-Authorization"] = token;
   }
+
   if (data) {
     options.headers["Content-Type"] = "application/json";
     options.body = JSON.stringify(data);

@@ -17,5 +17,5 @@ export async function register(email, password) {
 }
 
 export async function logout() {
-  await HTTPRequest.get(endpoint.logout);
+  await HTTPRequest.post(endpoint.logout);
 }
