@@ -159,11 +159,6 @@ export default function Navbar() {
                     </Link>
                     {isAdmin && (
                       <>
-                        <Link to="/a" className={styles.subMenuLink}>
-                          <i className="fa-solid fa-camera"></i>
-                          <p>Нашите клиенти</p>
-                          <span>{">"}</span>
-                        </Link>
                         <Link
                           to="programs"
                           className={styles.subMenuLink}
