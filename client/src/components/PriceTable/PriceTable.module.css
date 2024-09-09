@@ -1,180 +1,177 @@
 .section {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    margin-top: 10em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin-top: 10em;
 }
 
 .gradientText {
-    background: linear-gradient(270deg, #4d1313, #ff0404 100%);
-    background-clip: text;
-    color: transparent;
-    font-size: 2.5em;
-    filter: drop-shadow(1px 1px 2px #757588);
+  background: linear-gradient(270deg, #4d1313, #ff0404 100%);
+  background-clip: text;
+  color: transparent;
+  font-size: 2.5em;
+  filter: drop-shadow(1px 1px 2px #757588);
 }
 
 .section p {
-    font-size: 1.1rem;
-    margin-bottom: 0.5em;
+  font-size: 1.1rem;
+  margin-bottom: 0.5em;
 }
 
 .wrapper {
-    width: 90%;
-    display: flex;
-    margin: auto;
-    justify-content: space-between;
-    padding: 20px;
-    margin: 80px 20px 145px 20px;
+  width: 90%;
+  display: flex;
+  margin: auto;
+  justify-content: space-between;
+  padding: 20px;
+  margin: 80px 20px 145px 20px;
 }
 
 .table {
-    width: 30%;
-    padding: 30px;
-    background: white;
-    border-radius: 1em 0 1em 0;
-    transition: .3s ease-in-out;
-    position: relative;
-    cursor: pointer;
-    box-shadow: rgba(136, 165, 191, 0.48) 6px 2px 16px 0px, rgba(255, 255, 255, 0.8) -6px -2px 16px 0px;
+  width: 30%;
+  padding: 30px;
+  background: white;
+  border-radius: 1em 0 1em 0;
+  transition: 0.3s ease-in-out;
+  position: relative;
+  cursor: pointer;
+  box-shadow: rgba(136, 165, 191, 0.48) 6px 2px 16px 0px,
+    rgba(255, 255, 255, 0.8) -6px -2px 16px 0px;
 }
 
 .table:hover {
-    transform: scale(1.04);
+  transform: scale(1.04);
 }
 
 .priceSection {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .priceArea {
-    height: 150px;
-    width: 150px;
-    background: #ff0404;
-    border-radius: 50%;
-    padding: 3px;
+  height: 150px;
+  width: 150px;
+  background: #ff0404;
+  border-radius: 50%;
+  padding: 3px;
 }
 
 .innerArea {
-    height: 100%;
-    width: 100%;
-    background: #ff0404;
-    border-radius: 50%;
-    border: 4px solid white;
-    color: white;
-    line-height: 117px;
-    text-align: center;
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  height: 100%;
+  width: 100%;
+  background: #ff0404;
+  border-radius: 50%;
+  border: 4px solid white;
+  color: white;
+  line-height: 117px;
+  text-align: center;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .text {
-    font-size: 18px;
-    font-weight: 400;
-    position: absolute;
-    right: 15px;
-    top: -11px;
+  font-size: 18px;
+  font-weight: 400;
+  position: absolute;
+  right: 15px;
+  top: -11px;
 }
 
 .price {
-    font-size: 43px;
-    font-weight: 500;
-    margin-right: 15px;
+  font-size: 43px;
+  font-weight: 500;
+  margin-right: 15px;
 }
 
 .packageName {
-    width: 100%;
-    height: 2px;
-    background: red;
-    margin: 20px 0;
-    position: relative;
-    font-size: 25px;
-    font-weight: 700;
-    text-align: center;
+  width: 100%;
+  height: 2px;
+  background: red;
+  margin: 20px 0;
+  position: relative;
+  font-size: 25px;
+  font-weight: 700;
+  text-align: center;
 }
 
 .features {
-    margin-top: 3em;
+  margin-top: 3em;
 }
 
 .features li {
-    margin-bottom: 15px;
-    display: flex;
-    justify-content: space-between;
+  margin-bottom: 15px;
+  display: flex;
+  justify-content: space-between;
 }
 
 .listName {
-    font-size: 17px;
-    font-weight: 400;
+  font-size: 17px;
+  font-weight: 400;
 }
 
 .icon {
-    font-size: 15px;
-    color: green;
+  font-size: 15px;
+  color: green;
 }
 
 .ribbon {
-    height: 150px;
-    width: 150px;
-    position: absolute;
-    top: -10px;
-    left: -10px;
-    overflow: hidden;
+  height: 150px;
+  width: 150px;
+  position: absolute;
+  top: -10px;
+  left: -10px;
+  overflow: hidden;
 }
 
 .ribbon::before,
 .ribbon::after {
-    position: absolute;
-    content: "";
-    display: block;
-    border: 5px solid black;
-    border-top-color: transparent;
-    border-left-color: transparent;
+  position: absolute;
+  content: "";
+  display: block;
+  border: 5px solid black;
+  border-top-color: transparent;
+  border-left-color: transparent;
 }
 
 .ribbon::before {
-    top: 0px;
-    right: 28px;
-
+  top: 0px;
+  right: 28px;
 }
 
 .ribbon::after {
-    bottom: 28px;
-    left: 0px;
-
+  bottom: 28px;
+  left: 0px;
 }
 
 .ribbon span {
-    position: absolute;
-    background: red;
-    width: 200px;
-    padding: 5px 0;
-    color: white;
-    text-align: center;
-    top: 30px;
-    right: 0px;
-    transform: rotate(-45deg);
+  position: absolute;
+  background: red;
+  width: 200px;
+  padding: 5px 0;
+  color: white;
+  text-align: center;
+  top: 30px;
+  right: 0px;
+  transform: rotate(-45deg);
 }
 
-@media screen and (max-width:1387px) {
-    .features {
-        margin-top: 4.7em;
-    }
-
+@media screen and (max-width: 1387px) {
+  .features {
+    margin-top: 4.7em;
+  }
 }
 
+@media screen and (max-width: 868px) {
+  .wrapper {
+    flex-direction: column;
+  }
 
-@media screen and (max-width:868px) {
-    .wrapper {
-        flex-direction: column;
-    }
-
-    .table {
-        width: 100%;
-        margin-bottom: 4em;
-    }
+  .table {
+    width: 100%;
+    margin-bottom: 4em;
+  }
 }
