@@ -155,7 +155,10 @@ const AuthModal = ({ show, closeModal, setUser }) => {
                     <input
                       type="submit"
                       value={registered ? "Регистрация" : "Вход"}
-                      disabled={loginUserMutation.isLoading}
+                      disabled={
+                        loginUserMutation.isPending ||
+                        createUserMutation.isPending
+                      }
                     />
                   </div>
                 </form>
