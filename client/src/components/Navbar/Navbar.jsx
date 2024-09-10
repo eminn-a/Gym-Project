@@ -3,7 +3,7 @@ import styles from "./NavbarStyles.module.css";
 import AuthModal from "../AuthModal/AuthModal";
 import { clearUserData } from "../../utils/utils";
 import { UserContext } from "../../context/authContext";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import * as authService from "../../services/authService";
 import { useMutation } from "@tanstack/react-query";
 import toast from "react-hot-toast";
@@ -12,6 +12,8 @@ export default function Navbar() {
   const [mobileMenu, setMobileMenu] = useState(true);
   const [showModal, setShowModal] = useState(false);
   const [showProfile, setShowProfile] = useState(false);
+
+  const navigate = useNavigate();
 
   const { userData, setUserData, isAdmin } = useContext(UserContext);
 
@@ -27,6 +29,7 @@ export default function Navbar() {
       toast.success("Довиждане!");
       setShowProfile(false);
       setMobileMenu(true);
+      navigate("/");
     },
     onError: (error) => {
       toast.error(`Logout failed: ${error.message}`);
