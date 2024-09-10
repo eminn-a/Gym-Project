@@ -2,12 +2,14 @@ import { useMutation, useQueryClient } from "@tanstack/react-query";
 import CommentModal from "../CommentModal/CommentModal";
 import Comment from "./Comment";
 import styles from "./MyCommentsStyles.module.css";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import * as commentService from "../../services/commentService";
 import { useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
+import Spiner from "../../components/shared/spiner/Spiner";
+import ErrorMessage from "../shared/ErrorMessage/ErrorMessage";
 
-export default function Mycomments({ comments }) {
+export default function Mycomments({ comments, isLoading, error }) {
   const [mobileMenu, setMobileMenu] = useState(true);
   const [showModal, setShowModal] = useState(false);
   const [showProfile, setShowProfile] = useState(false);
@@ -54,6 +56,10 @@ export default function Mycomments({ comments }) {
             Напиши коментар
           </div>
         </div>
+        {isLoading && <Spiner />}
+        {error && (
+          <ErrorMessage message={"Възникна грешка моля опитайте по-късно!"} />
+        )}
         <div className={styles.tripCardContainer}>
           {comments?.map((x, index) => (
             <Comment key={index} data={x} onDelete={onDeleteHandler} />

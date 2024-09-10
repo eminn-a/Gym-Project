@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import SingleCard from "./SingleCard";
 import styles from "./TestemonialsStyles.module.css";
+import ErrorMessage from "../shared/ErrorMessage/ErrorMessage";
+import Spiner from "../shared/spiner/Spiner";
 
 export default function Testemonials({ testemonials, error, isLoading }) {
   const [comment, setComment] = useState(0);
@@ -27,22 +29,6 @@ export default function Testemonials({ testemonials, error, isLoading }) {
     }
   }, [comment, testemonials]);
 
-  if (error) {
-    return (
-      <div>
-        <h1>Error!</h1>
-      </div>
-    );
-  }
-
-  if (isLoading) {
-    return (
-      <div>
-        <h1>Loading...</h1>
-      </div>
-    );
-  }
-
   return (
     <div className={styles.trip} id="testemonials">
       <div>
@@ -51,6 +37,10 @@ export default function Testemonials({ testemonials, error, isLoading }) {
         </h1>
         <p>Мнения на нашите клиенти</p>
       </div>
+      {isLoading && <Spiner />}
+      {error && (
+        <ErrorMessage message={"Възникна грешка моля опитайте по-късно!"} />
+      )}
       <div className={styles.tripCardContainer} onClick={showNextComment}>
         {testemonials?.map((x, index) => (
           <SingleCard key={index} data={x} comment={comment} />

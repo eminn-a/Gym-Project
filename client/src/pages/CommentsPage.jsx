@@ -26,13 +26,12 @@ export default function CommentsPage() {
   });
 
   //need to fix loading spinner and error
-  if (isUserCommentsLoading) {
-    return <div>Loading...</div>;
-  }
 
-  if (userCommentsError) {
-    return <div>Error: {userCommentsError.message}</div>;
-  }
-
-  return <MyComments comments={userComments} />;
+  return (
+    <MyComments
+      comments={userComments}
+      isLoading={isUserCommentsLoading}
+      error={userCommentsError}
+    />
+  );
 }
