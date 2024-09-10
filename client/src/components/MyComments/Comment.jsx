@@ -1,9 +1,12 @@
 import styles from "./MyCommentsStyles.module.css";
 import CommentModal from "../CommentModal/CommentModal";
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { UserContext } from "../../context/authContext";
 
 export default function Comment({ data, onDelete }) {
   const [showModal, setShowModal] = useState(false);
+
+  const { isAdmin } = useContext(UserContext);
 
   const closeModal = () => {
     setShowModal(false);
@@ -25,17 +28,21 @@ export default function Comment({ data, onDelete }) {
           <div className={styles.infoContainer}></div>
           <p>{data.description}</p>
           <h4>{`${data.firstName} ${data.lastName}`}</h4>
-          <div className={styles.buttons}>
-            <div className={styles.editBtn} onClick={toggle}>
-              Edit
+          {isAdmin && (
+            <div className={styles.buttons}>
+              <div className={styles.editBtn} onClick={toggle}>
+                Edit
+              </div>
+              <div
+                className={styles.deleteBtn}
+                onClick={() =>
+                  onDelete(data._id, data.firstName, data.lastName)
+                }
+              >
+                Delete
+              </div>
             </div>
-            <div
-              className={styles.deleteBtn}
-              onClick={() => onDelete(data._id, data.firstName, data.lastName)}
-            >
-              Delete
-            </div>
-          </div>
+          )}
         </div>
       </div>
     </>

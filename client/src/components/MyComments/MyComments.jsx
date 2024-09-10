@@ -10,9 +10,7 @@ import Spiner from "../../components/shared/spiner/Spiner";
 import ErrorMessage from "../shared/ErrorMessage/ErrorMessage";
 
 export default function Mycomments({ comments, isLoading, error }) {
-  const [mobileMenu, setMobileMenu] = useState(true);
   const [showModal, setShowModal] = useState(false);
-  const [showProfile, setShowProfile] = useState(false);
 
   const navigate = useNavigate();
   const queryClient = useQueryClient();
