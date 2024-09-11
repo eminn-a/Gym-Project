@@ -13,6 +13,13 @@ router.post("/register", async (req, res) => {
 router.post("/login", async (req, res) => {
   try {
     const result = await userService.login(req.body);
+
+    res.cookie("authCookie", result, {
+      httpOnly: true,
+      // secure: true,
+      maxAge: 7 * 24 * 60 * 60 * 1000,
+    });
+
     res.status(200).json(result);
   } catch (err) {
     console.log(err);

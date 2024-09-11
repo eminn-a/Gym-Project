@@ -3,6 +3,7 @@ require("dotenv").config();
 const express = require("express");
 const cors = require("cors");
 const mongoose = require("mongoose");
+const cookieParser = require("cookie-parser");
 
 const routes = require("./routes");
 const { auth } = require("./middlewares/authMiddleware");
@@ -12,7 +13,13 @@ const PORT = process.env.PORT || 3030;
 
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
-app.use(cors());
+app.use(cookieParser());
+app.use(
+  cors({
+    origin: "http://localhost:5173",
+    credentials: true,
+  })
+);
 app.use(auth);
 app.use(routes);
 
