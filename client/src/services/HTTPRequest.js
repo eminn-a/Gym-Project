@@ -7,7 +7,6 @@ const HTTPRequest = async (method, url, data) => {
   const options = {
     method,
     headers: {},
-    credentials: "include",
   };
 
   const token = getAccessToken();
