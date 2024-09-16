@@ -27,6 +27,32 @@ router.post("/login", async (req, res) => {
   }
 });
 
+app.post("/refresh-token", (req, res) => {
+  const refreshToken = req.cookies.refreshToken;
+
+  if (!refreshToken) {
+    return res.status(401).json({ message: "Unauthorized" });
+  }
+
+  jwt.verify(refreshToken, process.env.JWT_REFRESH_SECRET, (err, user) => {
+    if (err) return res.sendStatus(403); // Invalid refresh token
+
+    const newAccessToken = jwt.sign(
+      { _id: user._id, email: user.email },
+      process.env.JWT_SECRET,
+      { expiresIn: "15m" }
+    );
+
+    res.json({
+      accessToken: newAccessToken,
+      user: {
+        _id: user._id,
+        email: user.email, // Include some minimal user info if needed
+      },
+    });
+  });
+});
+
 router.post("/logout", (req, res, next) => {
   try {
     res.clearCookie("authCookie");
