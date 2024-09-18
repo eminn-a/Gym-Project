@@ -27,7 +27,7 @@ router.post("/login", async (req, res) => {
   }
 });
 
-app.post("/refresh-token", (req, res) => {
+router.post("/refresh-token", (req, res) => {
   const refreshToken = req.cookies.refreshToken;
 
   if (!refreshToken) {
