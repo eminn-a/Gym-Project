@@ -33,11 +33,25 @@ function getAuthResult(user) {
     email: user.email,
   };
 
-  const token = jwt.sign(payload, process.env.JWT_SECRET, { expiresIn: "2d" });
-  const result = {
+  const accessToken = jwt.sign(payload, process.env.JWT_SECRET, {
+    expiresIn: "15m",
+  });
+  const refreshToken = generateRefreshToken(user);
+
+  return {
+    accessToken,
+    refreshToken,
+    user: {
+      _id: user._id,
+      email: user.email,
+    },
+  };
+}
+function generateRefreshToken(user) {
+  const payload = {
     _id: user._id,
     email: user.email,
-    accessToken: token,
   };
-  return result;
+
+  return jwt.sign(payload, process.env.JWT_REFRESH_SECRET, { expiresIn: "7d" }); // Refresh token validity
 }

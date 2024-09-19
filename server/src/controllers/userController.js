@@ -1,5 +1,7 @@
 const router = require("express").Router();
 const userService = require("../services/userService");
+const { verifyRefreshToken } = require("./../middlewares/verifyRefreshToken");
+const jwt = require("jsonwebtoken");
 
 router.post("/register", async (req, res) => {
   try {
@@ -14,42 +16,37 @@ router.post("/login", async (req, res) => {
   try {
     const result = await userService.login(req.body);
 
-    res.cookie("authCookie", result, {
+    // Set the refresh token in the cookie
+    res.cookie("refreshToken", result.refreshToken, {
       httpOnly: true,
-      // secure: true,
-      maxAge: 7 * 24 * 60 * 60 * 1000,
+      // secure: true, // Uncomment in production
+      maxAge: 7 * 24 * 60 * 60 * 1000, // 7 days
     });
 
-    res.status(200).json(result);
+    // Send the access token, refresh token, and user info in the response
+    res.status(200).json({
+      accessToken: result.accessToken,
+      user: result.user,
+    });
   } catch (err) {
     console.log(err);
     res.status(400).json({ message: err.message });
   }
 });
 
-router.post("/refresh-token", (req, res) => {
-  const refreshToken = req.cookies.refreshToken;
+router.post("/refresh-token", verifyRefreshToken, (req, res) => {
+  const { _id, email } = req.user; // User info from the middleware
 
-  if (!refreshToken) {
-    return res.status(401).json({ message: "Unauthorized" });
-  }
+  const newAccessToken = jwt.sign({ _id, email }, process.env.JWT_SECRET, {
+    expiresIn: "15m",
+  });
 
-  jwt.verify(refreshToken, process.env.JWT_REFRESH_SECRET, (err, user) => {
-    if (err) return res.sendStatus(403); // Invalid refresh token
-
-    const newAccessToken = jwt.sign(
-      { _id: user._id, email: user.email },
-      process.env.JWT_SECRET,
-      { expiresIn: "15m" }
-    );
-
-    res.json({
-      accessToken: newAccessToken,
-      user: {
-        _id: user._id,
-        email: user.email, // Include some minimal user info if needed
-      },
-    });
+  res.json({
+    accessToken: newAccessToken,
+    user: {
+      _id,
+      email,
+    },
   });
 });
 

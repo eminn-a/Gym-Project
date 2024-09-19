@@ -4,6 +4,7 @@ console.log("JWT_SECRET:", process.env.JWT_SECRET);
 
 exports.auth = (req, res, next) => {
   const token = req.header("x-Authorization");
+  console.log(token);
   if (token) {
     try {
       const decodedToken = jwt.verify(token, process.env.JWT_SECRET);
