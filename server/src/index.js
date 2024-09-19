@@ -11,12 +11,19 @@ const { auth } = require("./middlewares/authMiddleware");
 const app = express();
 const PORT = process.env.PORT || 3030;
 
+const corsOrigin =
+  process.env.NODE_ENV === "development"
+    ? process.env.DEV_ADDRESS
+    : process.env.PROD_ADDRESS || "http://localhost:5173";
+
+console.log(corsOrigin);
+
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 app.use(cookieParser());
 app.use(
   cors({
-    origin: "http://localhost:5173",
+    origin: corsOrigin,
     credentials: true,
   })
 );
