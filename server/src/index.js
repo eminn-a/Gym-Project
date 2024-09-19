@@ -23,7 +23,7 @@ app.use(express.json());
 app.use(cookieParser());
 app.use(
   cors({
-    origin: corsOrigin,
+    origin: "https://gym-c123.web.app",
     credentials: true,
   })
 );
