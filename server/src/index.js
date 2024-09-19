@@ -12,7 +12,7 @@ const app = express();
 const PORT = process.env.PORT || 3030;
 
 const corsOrigin =
-  process.env.NODE_ENV === "development"
+  process.env.NODE_ENV === "prod"
     ? process.env.DEV_ADDRESS
     : process.env.PROD_ADDRESS || "http://localhost:5173";
 
