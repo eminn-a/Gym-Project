@@ -1,5 +1,6 @@
 const router = require("express").Router();
 const commentService = require("../services/commentService");
+const { auth } = require("../middlewares/authMiddleware");
 
 router.get("/", async (req, res) => {
   try {
@@ -10,7 +11,8 @@ router.get("/", async (req, res) => {
   }
 });
 
-router.post("/", async (req, res) => {
+router.post("/", auth, async (req, res) => {
+  console.log(req.user);
   try {
     const comments = await commentService.create({
       ...req.body,
@@ -26,7 +28,7 @@ router.post("/", async (req, res) => {
   }
 });
 
-router.delete("/:id", async (req, res) => {
+router.delete("/:id", auth, async (req, res) => {
   try {
     const comment = await commentService.delete(req.params.id);
     res.status(200).json(comment);
@@ -37,7 +39,7 @@ router.delete("/:id", async (req, res) => {
   }
 });
 
-router.put("/:id", async (req, res) => {
+router.put("/:id", auth, async (req, res) => {
   try {
     const updatedComment = await commentService.updateById(
       req.params.id,

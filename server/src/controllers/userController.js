@@ -16,18 +16,12 @@ router.post("/login", async (req, res) => {
   try {
     const result = await userService.login(req.body);
 
-    // Set the refresh token in the cookie
-    res.cookie("refreshToken", result.refreshToken, {
+    res.cookie("authCookie", result.refreshToken, {
       httpOnly: true,
-      // secure: true, // Uncomment in production
       maxAge: 7 * 24 * 60 * 60 * 1000, // 7 days
     });
 
-    // Send the access token, refresh token, and user info in the response
-    res.status(200).json({
-      accessToken: result.accessToken,
-      user: result.user,
-    });
+    res.status(200).json(result);
   } catch (err) {
     console.log(err);
     res.status(400).json({ message: err.message });
@@ -35,8 +29,7 @@ router.post("/login", async (req, res) => {
 });
 
 router.post("/refresh-token", verifyRefreshToken, (req, res) => {
-  const { _id, email } = req.user; // User info from the middleware
-
+  const { _id, email } = req.user;
   const newAccessToken = jwt.sign({ _id, email }, process.env.JWT_SECRET, {
     expiresIn: "15m",
   });

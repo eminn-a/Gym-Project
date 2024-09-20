@@ -41,10 +41,8 @@ function getAuthResult(user) {
   return {
     accessToken,
     refreshToken,
-    user: {
-      _id: user._id,
-      email: user.email,
-    },
+    _id: user._id,
+    email: user.email,
   };
 }
 function generateRefreshToken(user) {

@@ -4,7 +4,7 @@ console.log("JWT_SECRET:", process.env.JWT_SECRET);
 
 exports.auth = (req, res, next) => {
   const token = req.header("x-Authorization");
-  console.log(token);
+
   if (token) {
     try {
       const decodedToken = jwt.verify(token, process.env.JWT_SECRET);
@@ -12,10 +12,10 @@ exports.auth = (req, res, next) => {
       next();
     } catch (error) {
       res.status(401).json({
-        message: "Не сте ауторизиран!",
+        message: "You are not authorized!",
       });
     }
   } else {
-    next();
+    return res.status(401).json({ message: "Unauthorized" });
   }
 };

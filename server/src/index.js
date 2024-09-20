@@ -20,7 +20,7 @@ app.use(
     credentials: true,
   })
 );
-app.use(auth);
+// app.use(auth);
 app.use(routes);
 
 const mongoDBURI =

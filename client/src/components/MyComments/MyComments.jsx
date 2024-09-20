@@ -28,7 +28,6 @@ export default function Mycomments({ comments, isLoading, error }) {
     onSuccess: () => {
       queryClient.invalidateQueries("userComments");
       toast.success("Изтрихте коментар");
-      navigate("/comments");
     },
     onError: (err) => {
       toast.error(err.message);

@@ -25,7 +25,6 @@ const HTTPRequest = async (method, url, data) => {
     if (response.ok != true) {
       if (response.status == 403 || response.status == 401) {
         clearUserData();
-        location.reload();
       }
 
       const error = await response.json();
@@ -37,7 +36,7 @@ const HTTPRequest = async (method, url, data) => {
       return response.json();
     }
   } catch (error) {
-    toast.error(error.message);
+    throw new Error(error.message);
   }
 };
 
