@@ -46,7 +46,7 @@ router.post("/refresh-token", verifyRefreshToken, (req, res) => {
 router.post("/logout", (req, res, next) => {
   try {
     res.clearCookie("authCookie");
-    res.status(200).json({ message: "Изхонд!" });
+    res.status(200).json({ message: "Изход!" });
   } catch (error) {
     next(error);
   }

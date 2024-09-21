@@ -23,7 +23,7 @@ router.post("/", auth, async (req, res) => {
   } catch (error) {
     console.log(error);
     res.status(400).json({
-      message: "Comment not created",
+      message: "Коментара не е създаден - Грешка в сървъра!",
     });
   }
 });
@@ -34,7 +34,7 @@ router.delete("/:id", auth, async (req, res) => {
     res.status(200).json(comment);
   } catch (error) {
     res.json({
-      message: "Something went wrong deleting destination",
+      message: "Възникна грешка при изтриването на коментара",
     });
   }
 });
@@ -48,7 +48,7 @@ router.put("/:id", auth, async (req, res) => {
     res.status(200).json(updatedComment);
   } catch (error) {
     res.json({
-      message: "Something went wrong updating destination",
+      message: "Възникна грешка при обновяването на коментара",
     });
   }
 });
