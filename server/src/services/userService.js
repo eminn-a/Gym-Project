@@ -39,10 +39,12 @@ function getAuthResult(user) {
   const refreshToken = generateRefreshToken(user);
 
   return {
-    accessToken,
+    userData: {
+      _id: user._id,
+      email: user.email,
+      accessToken,
+    },
     refreshToken,
-    _id: user._id,
-    email: user.email,
   };
 }
 function generateRefreshToken(user) {
@@ -51,5 +53,7 @@ function generateRefreshToken(user) {
     email: user.email,
   };
 
-  return jwt.sign(payload, process.env.JWT_REFRESH_SECRET, { expiresIn: "7d" }); // Refresh token validity
+  return jwt.sign(payload, process.env.JWT_REFRESH_SECRET, {
+    expiresIn: "7d",
+  }); // Refresh token validity
 }
