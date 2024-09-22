@@ -12,7 +12,7 @@ exports.auth = (req, res, next) => {
       next();
     } catch (error) {
       res.status(401).json({
-        message: "You are not authorized!",
+        message: "Не сте ауторизиран!",
       });
     }
   } else {
