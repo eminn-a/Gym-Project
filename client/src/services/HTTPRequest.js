@@ -1,5 +1,5 @@
 import toast from "react-hot-toast";
-import { clearUserData, getAccessToken } from "../utils/utils";
+import { clearUserData, getAccessToken, setUserData } from "../utils/utils";
 
 const host = import.meta.env.VITE_API_BASE_URL;
 
@@ -11,32 +11,74 @@ const HTTPRequest = async (method, url, data) => {
   };
 
   const token = getAccessToken();
-  console.log(token);
   if (token) {
     options.headers["X-Authorization"] = token;
   }
+
   if (data) {
     options.headers["Content-Type"] = "application/json";
     options.body = JSON.stringify(data);
   }
 
   try {
-    const response = await fetch(host + url, options);
-    if (response.ok != true) {
-      if (response.status == 403 || response.status == 401) {
-        clearUserData();
-      }
+    let response = await fetch(host + url, options);
 
-      const error = await response.json();
-      throw new Error(error.message);
+    if (!response.ok) {
+      if (response.status === 403 || response.status === 401) {
+        try {
+          const newToken = await refreshToken();
+
+          options.headers["X-Authorization"] = newToken;
+          response = await fetch(host + url, options);
+
+          if (!response.ok) {
+            const error = await response.json();
+            toast.error(error.message);
+            throw new Error(error.message);
+          }
+        } catch (refreshError) {
+          clearUserData();
+          setTimeout(() => {
+            window.location.assign("/");
+          }, 4000);
+          throw new Error(refreshError.message);
+        }
+      } else {
+        const error = await response.json();
+        toast.error(error.message);
+        throw new Error(error.message);
+      }
     }
-    if (response.status == 204) {
+
+    if (response.status === 204) {
       return response;
     } else {
       return response.json();
     }
   } catch (error) {
+    toast.error(error.message);
     throw new Error(error.message);
+  }
+};
+
+const refreshToken = async () => {
+  try {
+    const response = await fetch(`${host}/users/refresh-token`, {
+      method: "POST",
+      credentials: "include",
+    });
+
+    if (response.ok) {
+      const data = await response.json();
+      setUserData(data);
+      return data.accessToken;
+    } else {
+      clearUserData();
+      throw new Error("Failed to refresh token");
+    }
+  } catch (error) {
+    clearUserData();
+    throw new Error("Failed to refresh token");
   }
 };
 
