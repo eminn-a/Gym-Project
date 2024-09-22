@@ -21,7 +21,7 @@ router.post("/login", async (req, res) => {
       maxAge: 7 * 24 * 60 * 60 * 1000, // 7 days
     });
 
-    res.status(200).json(result);
+    res.status(200).json(result.userData);
   } catch (err) {
     console.log(err);
     res.status(400).json({ message: err.message });
@@ -31,15 +31,13 @@ router.post("/login", async (req, res) => {
 router.post("/refresh-token", verifyRefreshToken, (req, res) => {
   const { _id, email } = req.user;
   const newAccessToken = jwt.sign({ _id, email }, process.env.JWT_SECRET, {
-    expiresIn: "15m",
+    expiresIn: "10s",
   });
 
   res.json({
     accessToken: newAccessToken,
-    user: {
-      _id,
-      email,
-    },
+    _id,
+    email,
   });
 });
 
