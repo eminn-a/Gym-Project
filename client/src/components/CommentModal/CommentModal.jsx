@@ -9,19 +9,13 @@ import { commentValidator } from "../../validation/commentValidator";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 
 const CommentModal = ({ show, closeModal, editData }) => {
-  const [registered, setRegistered] = useState(false);
-  const [showPassword, setShowPassword] = useState(false);
-  const [showRePassword, setShowRePassword] = useState(false);
-
   const queryClient = useQueryClient();
   const navigate = useNavigate();
   const validationSchema = commentValidator();
 
   const handleOuterClick = () => {
     closeModal();
-    setShowPassword(false);
-    setShowRePassword(false);
-    setRegistered(false);
+    reset();
   };
 
   const handleInnerClick = (e) => {
@@ -71,7 +65,7 @@ const CommentModal = ({ show, closeModal, editData }) => {
     mutationFn: (data, id) => commentService.update(data, data._id),
     onSuccess: () => {
       queryClient.invalidateQueries("userComments");
-      navigate("/comments");
+      closeModal();
       toast.success("Коментара беше променен!");
     },
     onError: (error) => {
@@ -97,7 +91,6 @@ const CommentModal = ({ show, closeModal, editData }) => {
               <button
                 onClick={() => {
                   closeModal();
-                  setRegistered(false);
                   reset();
                 }}
               >
