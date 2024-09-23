@@ -7,7 +7,7 @@ export default function PriceTable({ priceData }) {
       <h1>
         <span className={styles.gradientText}>Нашите цени</span>
       </h1>
-      <p>Мнения на нашите клиенти</p>
+      <p>Гъвкави планове за всеки</p>
       <div className={styles.wrapper}>
         {priceData.map((x, index) => (
           <PriceTableCard key={index} data={x} />
