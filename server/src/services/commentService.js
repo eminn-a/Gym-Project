@@ -1,6 +1,6 @@
 const Comment = require("../models/Comments");
 
-exports.getAll = () => Comment.find();
+exports.getAll = () => Comment.find().sort({ createdAt: -1 });
 
 exports.create = (userComment) => Comment.create(userComment);
 
