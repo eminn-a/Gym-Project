@@ -1,4 +1,3 @@
-import toast from "react-hot-toast";
 import { clearUserData, getAccessToken, setUserData } from "../utils/utils";
 
 const host = import.meta.env.VITE_API_BASE_URL;
@@ -33,7 +32,6 @@ const HTTPRequest = async (method, url, data) => {
 
           if (!response.ok) {
             const error = await response.json();
-            toast.error(error.message);
             throw new Error(error.message);
           }
         } catch (refreshError) {
@@ -45,7 +43,6 @@ const HTTPRequest = async (method, url, data) => {
         }
       } else {
         const error = await response.json();
-        toast.error(error.message);
         throw new Error(error.message);
       }
     }
@@ -56,7 +53,6 @@ const HTTPRequest = async (method, url, data) => {
       return response.json();
     }
   } catch (error) {
-    toast.error(error.message);
     throw new Error(error.message);
   }
 };
