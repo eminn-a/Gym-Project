@@ -1,7 +1,7 @@
 require("dotenv").config();
 const express = require("express");
-const cors = require("cors");
 const mongoose = require("mongoose");
+const cors = require("cors");
 const cookieParser = require("cookie-parser");
 
 const routes = require("./routes");
@@ -22,6 +22,7 @@ app.use(routes);
 
 const mongoDBURI =
   process.env.MONGO_URI || "mongodb://127.0.0.1:27017/yosifFIT";
+
 mongoose
   .connect(mongoDBURI)
   .then(() => console.log("DB connected"))
