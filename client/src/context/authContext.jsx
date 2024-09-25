@@ -1,5 +1,5 @@
 import React, { createContext, useState, useEffect } from "react";
-import { getUserData } from "../utils/utils";
+import { setAccessToken } from "../utils/utils";
 import { refreshToken } from "../utils/refreshToken";
 
 export const UserContext = createContext();
@@ -13,6 +13,7 @@ export const UserProvider = ({ children }) => {
         const checkUser = await refreshToken();
         if (checkUser) {
           setUserData(checkUser);
+          setAccessToken(checkUser.accessToken);
         }
       } catch (error) {}
     };

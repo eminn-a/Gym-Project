@@ -34,7 +34,7 @@ function getAuthResult(user) {
   };
 
   const accessToken = jwt.sign(payload, process.env.JWT_SECRET, {
-    expiresIn: "10s",
+    expiresIn: "10m",
   });
   const refreshToken = generateRefreshToken(user);
 

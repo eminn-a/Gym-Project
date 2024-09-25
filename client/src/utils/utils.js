@@ -9,11 +9,12 @@ export function clearUserData() {
   localStorage.removeItem("user");
 }
 
+let accesToken = null;
+
 export function getAccessToken() {
-  const user = getUserData();
-  if (user) {
-    return user.accessToken;
-  } else {
-    return null;
-  }
+  return accesToken;
+}
+
+export function setAccessToken(newToken) {
+  accesToken = newToken;
 }
