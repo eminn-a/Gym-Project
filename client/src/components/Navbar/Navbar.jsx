@@ -191,7 +191,7 @@ export default function Navbar() {
                         </Link>
                       </>
                     )}
-                    <a
+                    <Link
                       onClick={() => {
                         logoutUserMutation.mutate();
                       }}
@@ -200,7 +200,7 @@ export default function Navbar() {
                       <i className="fa-solid fa-right-from-bracket"></i>
                       <p>Изход</p>
                       <span>{">"}</span>
-                    </a>
+                    </Link>
                   </div>
                 </div>
               </>
