@@ -40,7 +40,7 @@ const AuthModal = ({ show, closeModal, setUser }) => {
     mutationFn: (data) => authService.login(data.email, data.password),
     onSuccess: (user) => {
       if (user) {
-        setUserData(user);
+        // setUserData(user);
         setUser({ ...user });
         closeModal();
         reset();

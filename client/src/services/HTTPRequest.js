@@ -1,3 +1,4 @@
+import { refreshToken } from "../utils/refreshToken";
 import { clearUserData, getAccessToken, setUserData } from "../utils/utils";
 
 const host = import.meta.env.VITE_API_BASE_URL;
@@ -26,8 +27,7 @@ const HTTPRequest = async (method, url, data) => {
       if (response.status === 403 || response.status === 401) {
         try {
           const newToken = await refreshToken();
-
-          options.headers["X-Authorization"] = newToken;
+          options.headers["X-Authorization"] = newToken.accessToken;
           response = await fetch(host + url, options);
 
           if (!response.ok) {
@@ -57,26 +57,26 @@ const HTTPRequest = async (method, url, data) => {
   }
 };
 
-const refreshToken = async () => {
-  try {
-    const response = await fetch(`${host}/users/refresh-token`, {
-      method: "POST",
-      credentials: "include",
-    });
+// const refreshToken = async () => {
+//   try {
+//     const response = await fetch(`${host}/users/refresh-token`, {
+//       method: "POST",
+//       credentials: "include",
+//     });
 
-    if (response.ok) {
-      const data = await response.json();
-      setUserData(data);
-      return data.accessToken;
-    } else {
-      clearUserData();
-      throw new Error("Failed to refresh token");
-    }
-  } catch (error) {
-    clearUserData();
-    throw new Error("Failed to refresh token");
-  }
-};
+//     if (response.ok) {
+//       const data = await response.json();
+//       setUserData(data);
+//       return data.accessToken;
+//     } else {
+//       clearUserData();
+//       throw new Error("Failed to refresh token");
+//     }
+//   } catch (error) {
+//     clearUserData();
+//     throw new Error("Failed to refresh token");
+//   }
+// };
 
 export const get = HTTPRequest.bind(null, "GET");
 export const post = HTTPRequest.bind(null, "POST");
