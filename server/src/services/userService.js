@@ -47,6 +47,7 @@ function getAuthResult(user) {
     refreshToken,
   };
 }
+
 function generateRefreshToken(user) {
   const payload = {
     _id: user._id,

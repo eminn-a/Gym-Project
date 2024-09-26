@@ -29,24 +29,30 @@ router.post("/login", async (req, res) => {
 });
 
 router.post("/refresh-token", verifyRefreshToken, (req, res) => {
-  const { _id, email } = req.user;
-  const newAccessToken = jwt.sign({ _id, email }, process.env.JWT_SECRET, {
-    expiresIn: "10m",
-  });
+  try {
+    const { _id, email } = req.user;
+    const newAccessToken = jwt.sign({ _id, email }, process.env.JWT_SECRET, {
+      expiresIn: "10m",
+    });
 
-  res.json({
-    accessToken: newAccessToken,
-    _id,
-    email,
-  });
+    res.status(200).json({
+      accessToken: newAccessToken,
+      _id,
+      email,
+    });
+  } catch (error) {
+    res
+      .status(500)
+      .json({ message: "Възникна проблем при обновяването на токен!" });
+  }
 });
 
-router.post("/logout", (req, res, next) => {
+router.post("/logout", (req, res) => {
   try {
     res.clearCookie("authCookie");
-    res.status(200).json({ message: "Изход!" });
+    res.status(200).json({ message: "Успешен изход!" });
   } catch (error) {
-    next(error);
+    res.status(500).json({ message: "Logout failed." });
   }
 });
 
