@@ -3,10 +3,12 @@ const commentService = require("../services/commentService");
 const { auth } = require("../middlewares/authMiddleware");
 
 router.get("/", async (req, res) => {
+  const { limit } = req.query;
   try {
-    const comments = await commentService.getAll();
+    const comments = await commentService.getAll(limit);
     res.json(comments);
   } catch (error) {
+    console.log(error);
     res.status(400).json({ message: "Грешка коментари!" });
   }
 });

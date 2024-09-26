@@ -1,6 +1,13 @@
 const Comment = require("../models/Comments");
 
-exports.getAll = () => Comment.find().sort({ createdAt: -1 });
+exports.getAll = (limit) => {
+  let query = Comment.find().sort({ createdAt: -1 });
+  console.log(limit);
+  if (limit) {
+    query.limit(limit);
+  }
+  return query;
+};
 
 exports.create = (userComment) => Comment.create(userComment);
 
