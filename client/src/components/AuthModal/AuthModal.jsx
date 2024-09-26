@@ -8,7 +8,7 @@ import * as authService from "../../services/authService";
 import { setUserData } from "../../utils/utils";
 import { useMutation } from "@tanstack/react-query";
 
-const AuthModal = ({ show, closeModal, setUser }) => {
+const AuthModal = ({ show, closeModal, setUser, setIsAdmin }) => {
   const [registered, setRegistered] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
   const [showRePassword, setShowRePassword] = useState(false);
@@ -40,8 +40,8 @@ const AuthModal = ({ show, closeModal, setUser }) => {
     mutationFn: (data) => authService.login(data.email, data.password),
     onSuccess: (user) => {
       if (user) {
-        // setUserData(user);
         setUser({ ...user });
+        setIsAdmin(true);
         closeModal();
         reset();
         toast.success(`Здравей, ${user.email}`);

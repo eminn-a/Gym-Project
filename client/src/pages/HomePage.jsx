@@ -23,7 +23,7 @@ export default function HomePage() {
     error: commentsError,
   } = useQuery({
     queryKey: ["comments"],
-    queryFn: () => commentService.getLatest(2),
+    queryFn: () => commentService.getLatest(3),
     retry: 1,
   });
 

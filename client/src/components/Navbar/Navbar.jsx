@@ -15,7 +15,8 @@ export default function Navbar() {
 
   const navigate = useNavigate();
 
-  const { userData, setUserData, isAdmin } = useContext(UserContext);
+  const { userData, setUserData, isAdmin, setIsAdmin } =
+    useContext(UserContext);
 
   const closeModal = () => {
     setShowModal(false);
@@ -26,6 +27,7 @@ export default function Navbar() {
     onSuccess: () => {
       clearUserData();
       setUserData(null);
+      setIsAdmin(null);
       toast.success("Довиждане!");
       setShowProfile(false);
       setMobileMenu(true);
@@ -74,6 +76,7 @@ export default function Navbar() {
         show={showModal}
         closeModal={closeModal}
         setUser={setUserData}
+        setIsAdmin={setIsAdmin}
       />
       <nav>
         <Link
