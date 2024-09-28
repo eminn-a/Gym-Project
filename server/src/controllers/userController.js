@@ -18,6 +18,7 @@ router.post("/login", async (req, res) => {
 
     res.cookie("authCookie", result.refreshToken, {
       httpOnly: true,
+      secure: true, // Add this line to enforce HTTPS
       sameSite: "None",
       maxAge: 7 * 24 * 60 * 60 * 1000, // 7 days
     });
