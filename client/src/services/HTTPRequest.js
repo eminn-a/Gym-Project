@@ -11,6 +11,7 @@ const HTTPRequest = async (method, url, data) => {
   };
 
   const token = getAccessToken();
+  console.log(token);
   if (token) {
     console.log(token);
     options.headers["X-Authorization"] = token;

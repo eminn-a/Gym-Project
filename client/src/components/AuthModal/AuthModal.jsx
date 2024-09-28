@@ -5,7 +5,7 @@ import toast from "react-hot-toast";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { loginValidation } from "../../validation/loginValidation";
 import * as authService from "../../services/authService";
-import { setUserData } from "../../utils/utils";
+import { setAccessToken, setUserData } from "../../utils/utils";
 import { useMutation } from "@tanstack/react-query";
 
 const AuthModal = ({ show, closeModal, setUser, setIsAdmin }) => {
@@ -40,6 +40,7 @@ const AuthModal = ({ show, closeModal, setUser, setIsAdmin }) => {
     mutationFn: (data) => authService.login(data.email, data.password),
     onSuccess: (user) => {
       if (user) {
+        setAccessToken(user.accessToken);
         setUser({ ...user });
         setIsAdmin(true);
         closeModal();
