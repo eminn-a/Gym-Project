@@ -50,7 +50,11 @@ router.post("/refresh-token", verifyRefreshToken, (req, res) => {
 
 router.post("/logout", (req, res) => {
   try {
-    res.clearCookie("authCookie");
+    res.clearCookie("authCookie", {
+      httpOnly: true, // Make sure to include this
+      secure: true, // Set to true if in production (HTTPS)
+      sameSite: "None",
+    });
     res.status(200).json({ message: "Успешен изход!" });
   } catch (error) {
     res.status(500).json({ message: "Logout failed." });
