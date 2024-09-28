@@ -1,7 +1,5 @@
 const jwt = require("jsonwebtoken");
 
-console.log("JWT_SECRET:", process.env.JWT_SECRET);
-
 exports.auth = (req, res, next) => {
   const token = req.header("x-Authorization");
 

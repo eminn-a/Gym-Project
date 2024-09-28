@@ -2,7 +2,6 @@ const Comment = require("../models/Comments");
 
 exports.getAll = (limit) => {
   let query = Comment.find().sort({ createdAt: -1 });
-  console.log(limit);
   if (limit) {
     query.limit(limit);
   }

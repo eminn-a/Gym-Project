@@ -18,14 +18,13 @@ router.post("/login", async (req, res) => {
 
     res.cookie("authCookie", result.refreshToken, {
       httpOnly: true,
-      secure: true, // Add this line to enforce HTTPS
+      secure: true,
       sameSite: "None",
       maxAge: 7 * 24 * 60 * 60 * 1000, // 7 days
     });
 
     res.status(200).json(result.userData);
   } catch (err) {
-    console.log(err);
     res.status(400).json({ message: err.message });
   }
 });

@@ -8,13 +8,11 @@ router.get("/", async (req, res) => {
     const comments = await commentService.getAll(limit);
     res.json(comments);
   } catch (error) {
-    console.log(error);
     res.status(400).json({ message: "Грешка коментари!" });
   }
 });
 
 router.post("/", auth, async (req, res) => {
-  console.log(req.user);
   try {
     const comments = await commentService.create({
       ...req.body,
@@ -23,7 +21,6 @@ router.post("/", auth, async (req, res) => {
 
     res.status(201).json(comments);
   } catch (error) {
-    console.log(error);
     res.status(400).json({
       message: "Коментара не е създаден - Грешка в сървъра!",
     });
