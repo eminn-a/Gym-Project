@@ -15,7 +15,7 @@ export default function CommentsPage() {
     queryKey: ["userComments", isAdmin], // Add isAdmin to the queryKey
     queryFn: () => {
       if (isAdmin) {
-        return commentService.getAll();
+        return commentService.getPage(5, 1);
       } else {
         return commentService.getLatest(2);
       }
@@ -29,10 +29,9 @@ export default function CommentsPage() {
   //     refetch();
   //   }
   // }, [isAdmin, refetch]);
-
   return (
     <MyComments
-      comments={userComments}
+      data={userComments}
       isLoading={isUserCommentsLoading}
       error={userCommentsError}
     />

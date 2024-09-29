@@ -10,13 +10,14 @@ import { priceData } from "../data/priceData";
 import { programsData } from "../data/programsData";
 import { steps } from "../data/steps";
 import { coaches } from "../data/coaches";
-import { useEffect, useState } from "react";
+import { useEffect, useMemo } from "react";
 import { useLocation } from "react-router-dom";
 import * as commentService from "../services/commentService";
-
 import { useQuery } from "@tanstack/react-query";
 
 export default function HomePage() {
+  const { hash } = useLocation();
+
   const {
     data: comments,
     isLoading: isCommentsLoading,
@@ -25,37 +26,40 @@ export default function HomePage() {
     queryKey: ["comments"],
     queryFn: () => commentService.getLatest(3),
     retry: 1,
+    staleTime: 5 * 60 * 1000,
   });
 
-  const location = useLocation();
-
   useEffect(() => {
-    if (location.hash) {
-      const section = document.querySelector(location.hash);
-      if (section) {
-        const offset = 90;
-        window.scrollTo({
-          top: section.offsetTop - offset,
-          behavior: "smooth",
-        });
+    const scrollToSection = () => {
+      const offset = 90;
+      if (hash) {
+        const section = document.querySelector(hash);
+        if (section) {
+          window.scrollTo({
+            top: section.offsetTop - offset,
+            behavior: "smooth",
+          });
+        }
+      } else {
+        window.scrollTo({ top: 0, behavior: "smooth" });
       }
-    } else {
-      window.scrollTo({
-        top: 0,
-        behavior: "smooth",
-      });
-    }
-  }, [location.hash]);
+    };
+    scrollToSection();
+  }, [hash]);
 
-  console.log(comments);
+  const memoizedHeroData = useMemo(() => heroData, []);
+  const memoizedPriceData = useMemo(() => priceData, []);
+  const memoizedProgramsData = useMemo(() => programsData, []);
+  const memoizedSteps = useMemo(() => steps, []);
+  const memoizedCoaches = useMemo(() => coaches, []);
 
   return (
     <>
-      <Hero heroData={heroData} />
-      <Steps steps={steps} />
-      <Classes programsData={programsData} />
-      <About coaches={coaches} />
-      <PriceTable priceData={priceData} />
+      <Hero heroData={memoizedHeroData} />
+      <Steps steps={memoizedSteps} />
+      <Classes programsData={memoizedProgramsData} />
+      <About coaches={memoizedCoaches} />
+      <PriceTable priceData={memoizedPriceData} />
       <Testemonials
         testemonials={comments || []}
         isLoading={isCommentsLoading}

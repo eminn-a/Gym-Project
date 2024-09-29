@@ -1,7 +1,6 @@
 import styles from "./MyCommentsStyles.module.css";
 import CommentModal from "../CommentModal/CommentModal";
-import { useContext, useState } from "react";
-import { UserContext } from "../../context/authContext";
+import { useState } from "react";
 
 export default function Comment({ data, onDelete }) {
   const [showModal, setShowModal] = useState(false);
