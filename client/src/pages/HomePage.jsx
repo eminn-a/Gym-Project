@@ -47,6 +47,8 @@ export default function HomePage() {
     }
   }, [location.hash]);
 
+  console.log(comments);
+
   return (
     <>
       <Hero heroData={heroData} />

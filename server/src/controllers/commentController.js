@@ -3,10 +3,23 @@ const commentService = require("../services/commentService");
 const { auth } = require("../middlewares/authMiddleware");
 
 router.get("/", async (req, res) => {
-  const { limit } = req.query;
+  const limit = Number(req.query.limit);
+  const page = Number(req.query.page);
+  const startIndex = (page - 1) * limit;
   try {
-    const comments = await commentService.getAll(limit);
-    res.json(comments);
+    const total = await commentService.countAll();
+
+    const comments = await commentService.getAll(limit, startIndex);
+
+    // const comments = await commentService.getAll(limit);
+    // res.json(comments);
+    res.json({
+      page,
+      limit,
+      total,
+      pages: Math.ceil(total / limit),
+      comments,
+    });
   } catch (error) {
     res.status(400).json({ message: "Грешка коментари!" });
   }

@@ -5,29 +5,22 @@ import ErrorMessage from "../shared/ErrorMessage/ErrorMessage";
 import Spiner from "../shared/spiner/Spiner";
 
 export default function Testemonials({ testemonials, error, isLoading }) {
-  const [comment, setComment] = useState(0);
+  const [commentIndex, setCommentIndex] = useState(0);
+
+  const { comments = [] } = testemonials;
 
   function showNextComment() {
-    if (testemonials.length > 1) {
-      setComment((prevComment) => {
-        if (prevComment === testemonials.length - 1) return 0;
-        return prevComment + 1;
-      });
+    if (comments.length > 1) {
+      setCommentIndex((prevIndex) => (prevIndex + 1) % comments.length);
     }
   }
 
   useEffect(() => {
-    if (testemonials.length > 1) {
-      const timer = setTimeout(() => {
-        setComment((prevComment) => {
-          if (prevComment === testemonials.length - 1) return 0;
-          return prevComment + 1;
-        });
-      }, 8000);
-
+    if (comments.length > 1) {
+      const timer = setTimeout(showNextComment, 8000);
       return () => clearTimeout(timer);
     }
-  }, [comment, testemonials]);
+  }, [commentIndex, comments.length]);
 
   return (
     <div className={styles.trip} id="testemonials">
@@ -37,13 +30,15 @@ export default function Testemonials({ testemonials, error, isLoading }) {
         </h1>
         <p>Мнения на нашите клиенти</p>
       </div>
+
       {isLoading && <Spiner />}
       {error && (
-        <ErrorMessage message={"Възникна грешка моля опитайте по-късно!"} />
+        <ErrorMessage message={"Възникна грешка, моля опитайте по-късно!"} />
       )}
+
       <div className={styles.tripCardContainer} onClick={showNextComment}>
-        {testemonials?.map((x, index) => (
-          <SingleCard key={index} data={x} comment={comment} />
+        {comments.map((x, index) => (
+          <SingleCard key={index} data={x} comment={commentIndex} />
         ))}
       </div>
     </div>
