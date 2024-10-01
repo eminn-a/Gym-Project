@@ -241,12 +241,19 @@ nav {
     display: none;
   }
 
+  .subMenu hr {
+    margin: 1px 0 10px;
+  }
+
   .subWrap {
     position: relative;
     top: 7%;
     right: 4%;
     width: 260px;
     max-height: 100%;
+  }
+  .subMenuLink {
+    margin: 2px 0;
   }
 
   .subMenuLink P {
@@ -263,8 +270,8 @@ nav {
   }
 }
 
-/* @media screen and (max-width: 425px) {
+@media screen and (max-width: 435px) {
   .subWrap {
-    top: 15%;
+    top: 1%;
   }
-} */
+}
