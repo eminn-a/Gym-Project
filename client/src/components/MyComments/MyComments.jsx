@@ -37,6 +37,8 @@ export default function MyComments({ data, isLoading, error }) {
     }
   };
 
+  //add paggionation here
+
   return (
     <>
       <CommentModal show={showModal} closeModal={closeModal} />
