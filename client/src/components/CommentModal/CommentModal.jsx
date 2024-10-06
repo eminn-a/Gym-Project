@@ -62,11 +62,12 @@ const CommentModal = ({ show, closeModal, editData }) => {
   });
 
   const commentUpdateMutation = useMutation({
-    mutationFn: (data, id) => commentService.update(data, data._id),
+    mutationFn: (data) => commentService.update(data, data._id),
     onSuccess: () => {
+      queryClient.invalidateQueries("comments");
       queryClient.invalidateQueries("userComments");
-      closeModal();
       toast.success("Коментара беше променен!");
+      closeModal();
     },
     onError: (error) => {
       toast.error(`${error.message}`);

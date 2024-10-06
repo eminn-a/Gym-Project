@@ -1,5 +1,5 @@
 import { refreshToken } from "../utils/refreshToken";
-import { clearUserData, getAccessToken, setAccessToken } from "../utils/utils";
+import { getAccessToken, setAccessToken } from "../utils/utils";
 
 const host = import.meta.env.VITE_API_BASE_URL;
 
@@ -36,7 +36,6 @@ const HTTPRequest = async (method, url, data) => {
             throw new Error(error.message);
           }
         } catch (refreshError) {
-          clearUserData();
           setTimeout(() => {
             window.location.assign("/");
           }, 4000);

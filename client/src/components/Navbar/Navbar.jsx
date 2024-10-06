@@ -1,7 +1,6 @@
 import { useContext, useState } from "react";
 import styles from "./NavbarStyles.module.css";
 import AuthModal from "../AuthModal/AuthModal";
-import { clearUserData } from "../../utils/utils";
 import { UserContext } from "../../context/authContext";
 import { Link, useNavigate } from "react-router-dom";
 import * as authService from "../../services/authService";
@@ -10,9 +9,8 @@ import toast from "react-hot-toast";
 
 export default function Navbar() {
   const [mobileMenu, setMobileMenu] = useState(true);
-  const [showModal, setShowModal] = useState(false);
   const [showProfile, setShowProfile] = useState(false);
-
+  const [showModal, setShowModal] = useState(false);
   const navigate = useNavigate();
 
   const { userData, setUserData, isAdmin, setIsAdmin } =
@@ -22,15 +20,18 @@ export default function Navbar() {
     setShowModal(false);
   };
 
+  const toggleProfile = () => {
+    setShowProfile(!showProfile);
+  };
+
   const logoutUserMutation = useMutation({
     mutationFn: () => authService.logout(),
     onSuccess: () => {
-      clearUserData();
       setUserData(null);
       setIsAdmin(null);
-      toast.success("Довиждане!");
       setShowProfile(false);
       setMobileMenu(true);
+      toast.success("Довиждане!");
       navigate("/");
     },
     onError: (error) => {
@@ -45,10 +46,6 @@ export default function Navbar() {
       top: 0,
       behavior: "smooth",
     });
-  };
-
-  const toggleProfile = () => {
-    setShowProfile(!showProfile);
   };
 
   const scrollToSection = (selector) => {
