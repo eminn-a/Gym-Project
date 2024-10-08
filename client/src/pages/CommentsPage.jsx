@@ -6,13 +6,13 @@ import * as commentService from "../services/commentService";
 
 export default function CommentsPage() {
   const { isAdmin } = useContext(UserContext);
-
+  console.log(isAdmin);
   const {
     data: userComments,
     isLoading: isUserCommentsLoading,
     error: userCommentsError,
   } = useQuery({
-    queryKey: ["userComments", isAdmin], // Add isAdmin to the queryKey
+    queryKey: ["userComments", isAdmin],
     queryFn: () => {
       if (isAdmin) {
         return commentService.getPage(5, 1);
@@ -24,11 +24,6 @@ export default function CommentsPage() {
     enabled: isAdmin !== undefined,
   });
 
-  // useEffect(() => {
-  //   if (isAdmin) {
-  //     refetch();
-  //   }
-  // }, [isAdmin, refetch]);
   return (
     <MyComments
       data={userComments}

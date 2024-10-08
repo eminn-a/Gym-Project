@@ -13,7 +13,9 @@ import Page404 from "./components/404/404Page.jsx";
 import { programsData } from "./data/programsData";
 import { coaches } from "./data/coaches";
 import { priceData } from "./data/priceData";
+
 import AdminGuard from "./guards/AdminGuard.jsx";
+import AuthGuard from "./guards/AuthGuard.jsx";
 
 function App() {
   const router = createBrowserRouter([
@@ -24,12 +26,9 @@ function App() {
       children: [
         { index: true, element: <HomePage /> },
         {
-          element: <AdminGuard />,
+          element: <AuthGuard />,
           children: [
-            {
-              path: "comments",
-              element: <CommentsPage />,
-            },
+            { path: "comments", element: <CommentsPage /> },
             {
               element: <AdminGuard />,
               children: [
@@ -37,14 +36,7 @@ function App() {
                   path: "programs",
                   element: <Classes programsData={programsData} />,
                 },
-                {
-                  path: "programs",
-                  element: <Classes programsData={programsData} />,
-                },
-                {
-                  path: "about",
-                  element: <About coaches={coaches} />,
-                },
+                { path: "about", element: <About coaches={coaches} /> },
                 {
                   path: "price",
                   element: <PriceTable priceData={priceData} />,
