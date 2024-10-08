@@ -16,3 +16,14 @@ exports.updateById = (id, updateData) =>
 exports.delete = (id) => Comment.findByIdAndDelete(id);
 
 exports.countAll = () => Comment.countDocuments();
+
+exports.countByOwner = (ownerId) => {
+  return Comment.countDocuments({ ownerId });
+};
+
+exports.getByOwner = (_ownerId, limit, skip) => {
+  return Comment.find({ _ownerId })
+    .sort({ createdAt: -1 })
+    .limit(limit)
+    .skip(skip);
+};

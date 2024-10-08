@@ -5,18 +5,15 @@ const { auth } = require("../middlewares/authMiddleware");
 router.get("/", async (req, res) => {
   const limit = Number(req.query.limit);
   const page = Number(req.query.page);
-  const ownerId = req.query.ownerId; // Optional ownerId parameter
+  const ownerId = req.query.ownerId;
   const startIndex = (page - 1) * limit;
-
   try {
     let total, comments;
 
     if (ownerId) {
-      // Count and fetch only the comments for the specific owner
       total = await commentService.countByOwner(ownerId);
       comments = await commentService.getByOwner(ownerId, limit, startIndex);
     } else {
-      // Count and fetch all comments
       total = await commentService.countAll();
       comments = await commentService.getAll(limit, startIndex);
     }
