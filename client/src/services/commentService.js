@@ -5,7 +5,10 @@ const endpoints = {
   getLatest: (number) => {
     return `/data/comments?limit=${number}`;
   },
-  getPage: (limit, page) => {
+  getPage: (limit, page, ownerId) => {
+    if (ownerId) {
+      return `/data/comments?limit=${limit}&page=${page}&ownerId=${ownerId}`;
+    }
     return `/data/comments?limit=${limit}&page=${page}`;
   },
   create: "/data/comments",
@@ -19,8 +22,8 @@ export const getLatest = async (number) => {
   return result;
 };
 
-export const getPage = async (limit, page) => {
-  const result = await HTTPRequest.get(endpoints.getPage(limit, page));
+export const getPage = async (limit, page, ownerId) => {
+  const result = await HTTPRequest.get(endpoints.getPage(limit, page, ownerId));
   return result;
 };
 

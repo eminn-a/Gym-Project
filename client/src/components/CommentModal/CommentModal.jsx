@@ -53,6 +53,7 @@ const CommentModal = ({ show, closeModal, editData }) => {
   const commentMutation = useMutation({
     mutationFn: (data) => commentService.create(data),
     onSuccess: () => {
+      queryClient.invalidateQueries("comments");
       navigate("/");
       toast.success("Коментара беше изпратен!");
     },

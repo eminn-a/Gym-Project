@@ -5,8 +5,8 @@ import { UserContext } from "../context/authContext";
 import * as commentService from "../services/commentService";
 
 export default function CommentsPage() {
-  const { isAdmin } = useContext(UserContext);
-  console.log(isAdmin);
+  const { isAdmin, userData } = useContext(UserContext);
+  console.log(userData);
   const {
     data: userComments,
     isLoading: isUserCommentsLoading,
@@ -17,7 +17,7 @@ export default function CommentsPage() {
       if (isAdmin) {
         return commentService.getPage(5, 1);
       } else {
-        return commentService.getLatest(2);
+        return commentService.getPage(5, 1, userData._id);
       }
     },
     retry: 1,
