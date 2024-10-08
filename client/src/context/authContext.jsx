@@ -25,6 +25,10 @@ export const UserProvider = ({ children }) => {
     fetchUserData();
   }, []);
 
+  useEffect(() => {
+    setIsAdmin(userData?.email === "admin@gmail.com");
+  }, [userData]);
+
   return (
     <UserContext.Provider
       value={{

@@ -42,7 +42,6 @@ const AuthModal = ({ show, closeModal, setUser, setIsAdmin }) => {
       if (user) {
         setAccessToken(user.accessToken);
         setUser({ ...user });
-        setIsAdmin(true);
         closeModal();
         reset();
         toast.success(`Здравей, ${user.email}`);

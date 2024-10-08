@@ -2,8 +2,8 @@ import { useContext } from "react";
 import { UserContext } from "../context/authContext";
 import { Navigate, Outlet } from "react-router-dom";
 
-export default function AtuhGuard() {
-  const { userData } = useContext(UserContext);
+export default function AdminGuard() {
+  const { isAdmin } = useContext(UserContext);
 
-  return userData ? <Outlet /> : <Navigate to="/" />;
+  return isAdmin ? <Outlet /> : <Navigate to="/" />;
 }

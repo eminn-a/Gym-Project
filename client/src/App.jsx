@@ -13,7 +13,7 @@ import Page404 from "./components/404/404Page.jsx";
 import { programsData } from "./data/programsData";
 import { coaches } from "./data/coaches";
 import { priceData } from "./data/priceData";
-import AtuhGuard from "./guards/AuthGuard.jsx";
+import AdminGuard from "./guards/AdminGuard.jsx";
 
 function App() {
   const router = createBrowserRouter([
@@ -24,27 +24,32 @@ function App() {
       children: [
         { index: true, element: <HomePage /> },
         {
-          element: <AtuhGuard />,
+          element: <AdminGuard />,
           children: [
             {
               path: "comments",
               element: <CommentsPage />,
             },
             {
-              path: "programs",
-              element: <Classes programsData={programsData} />,
-            },
-            {
-              path: "programs",
-              element: <Classes programsData={programsData} />,
-            },
-            {
-              path: "about",
-              element: <About coaches={coaches} />,
-            },
-            {
-              path: "price",
-              element: <PriceTable priceData={priceData} />,
+              element: <AdminGuard />,
+              children: [
+                {
+                  path: "programs",
+                  element: <Classes programsData={programsData} />,
+                },
+                {
+                  path: "programs",
+                  element: <Classes programsData={programsData} />,
+                },
+                {
+                  path: "about",
+                  element: <About coaches={coaches} />,
+                },
+                {
+                  path: "price",
+                  element: <PriceTable priceData={priceData} />,
+                },
+              ],
             },
           ],
         },
