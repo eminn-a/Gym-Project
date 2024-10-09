@@ -109,9 +109,10 @@
 
 .editBtn {
     padding: 10px 20px;
-    background-color: yellow;
+    background-color: green;
     border-radius: 3px;
     cursor: pointer;
+    text-shadow: 1px 1px 2px black;
 }
 
 .deleteBtn {
@@ -119,6 +120,7 @@
     background-color: red;
     border-radius: 3px;
     cursor: pointer;
+    text-shadow: 1px 1px 2px black;
 }
 
 .btn {

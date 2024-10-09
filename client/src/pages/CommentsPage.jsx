@@ -6,7 +6,6 @@ import * as commentService from "../services/commentService";
 
 export default function CommentsPage() {
   const { isAdmin, userData } = useContext(UserContext);
-  console.log(userData);
   const {
     data: userComments,
     isLoading: isUserCommentsLoading,
