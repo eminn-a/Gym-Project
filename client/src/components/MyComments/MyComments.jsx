@@ -2,17 +2,21 @@ import { useMutation, useQueryClient } from "@tanstack/react-query";
 import CommentModal from "../CommentModal/CommentModal";
 import Comment from "./Comment";
 import styles from "./MyCommentsStyles.module.css";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import * as commentService from "../../services/commentService";
 import toast from "react-hot-toast";
 import Spiner from "../../components/shared/spiner/Spiner";
 import ErrorMessage from "../shared/ErrorMessage/ErrorMessage";
+import { useInView } from "react-intersection-observer";
 
-export default function MyComments({ data, isLoading, error }) {
+export default function MyComments({
+  data,
+  isLoading,
+  error,
+  fetchNextPage,
+  hasNextPage,
+}) {
   const [showModal, setShowModal] = useState(false);
-
-  const { comments = [] } = data || {};
-
   const queryClient = useQueryClient();
 
   const toggleModal = () => setShowModal((prev) => !prev);
@@ -37,8 +41,14 @@ export default function MyComments({ data, isLoading, error }) {
     }
   };
 
-  //add paggionation here
+  const { ref, inView } = useInView();
 
+  useEffect(() => {
+    if (inView && hasNextPage) {
+      fetchNextPage();
+    }
+  }, [fetchNextPage, inView, hasNextPage]);
+  console.log(inView, ref);
   return (
     <>
       <CommentModal show={showModal} closeModal={closeModal} />
@@ -58,11 +68,22 @@ export default function MyComments({ data, isLoading, error }) {
         ) : error ? (
           <ErrorMessage message={"Възникна грешка, моля опитайте по-късно!"} />
         ) : (
-          <div className={styles.tripCardContainer}>
-            {comments.map((comment, index) => (
-              <Comment key={index} data={comment} onDelete={onDeleteHandler} />
-            ))}
-          </div>
+          <>
+            <div className={styles.tripCardContainer}>
+              {data.map((comment, index) => (
+                <Comment
+                  key={index}
+                  data={comment}
+                  onDelete={onDeleteHandler}
+                />
+              ))}
+            </div>
+            {hasNextPage && (
+              <div ref={ref} className={styles.loadingIndicator}>
+                <Spiner />
+              </div>
+            )}
+          </>
         )}
       </div>
     </>
