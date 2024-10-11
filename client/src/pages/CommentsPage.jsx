@@ -1,11 +1,14 @@
-import { useInfiniteQuery } from "@tanstack/react-query";
+import { useInfiniteQuery, useQueryClient } from "@tanstack/react-query";
 import MyComments from "../components/MyComments/MyComments";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { UserContext } from "../context/authContext";
 import * as commentService from "../services/commentService";
+import { useLocation } from "react-router-dom";
 
 export default function CommentsPage() {
   const { isAdmin, userData } = useContext(UserContext);
+  const location = useLocation();
+  const queryClient = useQueryClient();
 
   const {
     data: userComments,
@@ -13,6 +16,7 @@ export default function CommentsPage() {
     error: userCommentsError,
     fetchNextPage,
     hasNextPage,
+    refetch,
   } = useInfiniteQuery({
     queryKey: ["userComments", isAdmin],
     queryFn: ({ pageParam = 1 }) => {
@@ -28,6 +32,11 @@ export default function CommentsPage() {
     retry: 1,
     enabled: isAdmin !== undefined,
   });
+
+  useEffect(() => {
+    queryClient.resetQueries(["userComments", isAdmin]);
+    refetch();
+  }, [location.pathname, refetch, queryClient, isAdmin]);
 
   const allComments =
     userComments?.pages.flatMap((page) => page.comments) || [];
