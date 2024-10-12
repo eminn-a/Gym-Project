@@ -5,7 +5,7 @@ import { UserContext } from "../context/authContext";
 import * as commentService from "../services/commentService";
 import { useLocation } from "react-router-dom";
 
-export default function CommentsPage() {
+export default function MyCommentsPage() {
   const { isAdmin, userData } = useContext(UserContext);
   const location = useLocation();
   const queryClient = useQueryClient();

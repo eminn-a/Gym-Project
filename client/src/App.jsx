@@ -3,7 +3,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 import RouterLayout from "./pages/RootLayout.jsx";
 import HomePage from "./pages/HomePage";
-import CommentsPage from "./pages/CommentsPage.jsx";
+import MyCommentsPage from "./pages/MyCommentsPage.jsx";
 
 import Classes from "./components/Classes/Classes.jsx";
 import About from "./components/About/About.jsx";
@@ -16,6 +16,7 @@ import { priceData } from "./data/priceData";
 
 import AdminGuard from "./guards/AdminGuard.jsx";
 import AuthGuard from "./guards/AuthGuard.jsx";
+import AllCommentsPage from "./pages/AllCommentsPage.jsx";
 
 function App() {
   const router = createBrowserRouter([
@@ -25,10 +26,11 @@ function App() {
       errorElement: <Page404 />,
       children: [
         { index: true, element: <HomePage /> },
+        { path: "allComments", element: <AllCommentsPage /> },
         {
           element: <AuthGuard />,
           children: [
-            { path: "comments", element: <CommentsPage /> },
+            { path: "comments", element: <MyCommentsPage /> },
             {
               element: <AdminGuard />,
               children: [

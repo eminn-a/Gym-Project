@@ -112,6 +112,23 @@
   background-color: #ca031a;
 }
 
+.btnMain {
+  background: linear-gradient(270deg, #7e2d2d, #ff0404 60%);
+  padding: 8px 25px;
+  font-size: 1.3rem;
+  font-weight: 600;
+  border-radius: 4px;
+  cursor: pointer;
+  background-size: 200% 200%;
+  background-position: right;
+  color: white;
+  transition: background-position 0.3s ease-in-out;
+}
+
+.btnMain:hover {
+  background-position: left;
+}
+
 .gradientText {
   background: linear-gradient(270deg, #4d1313, #ff0404 100%);
   background-clip: text;

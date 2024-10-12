@@ -48,7 +48,6 @@ export default function MyComments({
       fetchNextPage();
     }
   }, [fetchNextPage, inView, hasNextPage]);
-  console.log(inView, ref);
   return (
     <>
       <CommentModal show={showModal} closeModal={closeModal} />
