@@ -16,7 +16,7 @@ export default function Comment({ data, onDelete }) {
     setShowModal(!showModal);
   };
 
-  const isOwner = data._ownerId === userData._id;
+  const isOwner = data._ownerId === userData?._id;
 
   return (
     <>
