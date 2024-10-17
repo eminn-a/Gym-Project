@@ -14,3 +14,9 @@
 .error a {
     color: var(--main-color);
 }
+
+.homeBtn {
+    color: var(--main-color);
+    text-decoration: underline;
+
+}

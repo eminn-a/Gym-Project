@@ -10,7 +10,10 @@ export default function Page404() {
           alt=""
         />
         <h2>
-          You lost? <br></br> Go back to <Link to="/">Home</Link>
+          You lost? <br></br> Go back to{" "}
+          <span className={styles.homeBtn}>
+            <Link to="/">Home</Link>
+          </span>
         </h2>
       </div>
     </section>
