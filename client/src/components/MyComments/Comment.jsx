@@ -5,7 +5,6 @@ import { UserContext } from "../../context/authContext";
 
 export default function Comment({ data, onDelete }) {
   const [showModal, setShowModal] = useState(false);
-
   const { isAdmin, userData } = useContext(UserContext);
 
   const closeModal = () => {
@@ -31,22 +30,21 @@ export default function Comment({ data, onDelete }) {
           <p>{data.description}</p>
           <h4>{`${data.firstName} ${data.lastName}`}</h4>
 
-          {isAdmin ||
-            (isOwner && (
-              <div className={styles.buttons}>
-                <div className={styles.editBtn} onClick={toggle}>
-                  Edit
-                </div>
-                <div
-                  className={styles.deleteBtn}
-                  onClick={() =>
-                    onDelete(data._id, data.firstName, data.lastName)
-                  }
-                >
-                  Delete
-                </div>
+          {(isAdmin || isOwner) && (
+            <div className={styles.buttons}>
+              <div className={styles.editBtn} onClick={toggle}>
+                Edit
               </div>
-            ))}
+              <div
+                className={styles.deleteBtn}
+                onClick={() =>
+                  onDelete(data._id, data.firstName, data.lastName)
+                }
+              >
+                Delete
+              </div>
+            </div>
+          )}
         </div>
       </div>
     </>
