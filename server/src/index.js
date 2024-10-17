@@ -20,6 +20,7 @@ app.use(
     allowedHeaders: ["Content-Type", "x-Authorization", "X-Requested-With"],
   })
 );
+
 app.use(routes);
 
 const mongoDBURI =
