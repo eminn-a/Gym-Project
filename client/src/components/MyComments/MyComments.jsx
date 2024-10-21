@@ -2,12 +2,13 @@ import { useMutation, useQueryClient } from "@tanstack/react-query";
 import CommentModal from "../CommentModal/CommentModal";
 import Comment from "./Comment";
 import styles from "./MyCommentsStyles.module.css";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import * as commentService from "../../services/commentService";
 import toast from "react-hot-toast";
 import Spiner from "../../components/shared/spiner/Spiner";
 import ErrorMessage from "../shared/ErrorMessage/ErrorMessage";
 import { useInView } from "react-intersection-observer";
+import { UserContext } from "../../context/authContext";
 
 export default function MyComments({
   data,
@@ -18,6 +19,7 @@ export default function MyComments({
 }) {
   const [showModal, setShowModal] = useState(false);
   const queryClient = useQueryClient();
+  const { userData } = useContext(UserContext);
 
   const toggleModal = () => setShowModal((prev) => !prev);
   const closeModal = () => setShowModal(false);
@@ -57,9 +59,11 @@ export default function MyComments({
             <span className={styles.gradientText}>Отзиви</span>
           </h1>
           <p>Мнения на нашите клиенти</p>
-          <div onClick={toggleModal} className={styles.btn}>
-            Напиши коментар
-          </div>
+          {userData && (
+            <div onClick={toggleModal} className={styles.btn}>
+              Напиши коментар
+            </div>
+          )}
         </div>
 
         {isLoading ? (
