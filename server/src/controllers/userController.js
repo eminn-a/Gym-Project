@@ -6,7 +6,16 @@ const jwt = require("jsonwebtoken");
 router.post("/register", async (req, res) => {
   try {
     const result = await userService.register(req.body);
-    res.json(result);
+
+    res.cookie("authCookie", result.refreshToken, {
+      httpOnly: true,
+      secure: true,
+      sameSite: "None",
+      path: "/users",
+      maxAge: 7 * 24 * 60 * 60 * 1000, // 7 days
+    });
+
+    res.status(200).json(result.userData);
   } catch (err) {
     res.status(400).json({ message: err.message });
   }
